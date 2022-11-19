@@ -1,10 +1,18 @@
 import React from "react";
 import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
-import TitleAndText from "../components/TitleAndText/TitleAndText";
+import TextWithIcons from "../components/TextWithIcons/TextWithIcons";
+import ProjectsGrid from "../components/ProjectsGrid/ProjectsGrid";
+import ImageLeftWithText from "../components/ImageLeftWithText/ImageLeftWithText";
+import IconsRow from "../components/IconsRow/IconsRow";
 
 const componentMap: any = {
   ContentfulHomepageHeader: (v: any) => <HomepageHeader data={v} key={v.id} />,
-  ContentfulTitleAndText: (v: any) => <TitleAndText data={v} key={v.id} />,
+  ContentfulTitleAndText: (v: any) => <TextWithIcons data={v} key={v.id} />,
+  ContentfulProjects: (v: any) => <ProjectsGrid data={v} key={v.id} />,
+  ContentfulImageLeftWithText: (v: any) => (
+    <ImageLeftWithText data={v} key={v.id} />
+  ),
+  ContentfulIconsRow: (v: any) => <IconsRow data={v} key={v.id} />,
 };
 
 export const componentBuilder = (strapiComponents: any[]) => {

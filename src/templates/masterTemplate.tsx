@@ -11,6 +11,9 @@ export default (data: any) => {
   function createComponentsArr() {
     componentsArr.push(pageData.header);
     componentsArr.push(pageData.titleAndText);
+    componentsArr.push(pageData.projectsGrid);
+    componentsArr.push(pageData.skills);
+    componentsArr.push(pageData.iconsRow);
   }
 
   createComponentsArr();
@@ -21,7 +24,6 @@ export default (data: any) => {
   console.log(pageData);
   return (
     <div>
-      masterTemplate{" "}
       {blocks?.map((block, id) => (
         <div key={id}>{block}</div>
       ))}
@@ -52,6 +54,48 @@ export const pageQuery = graphql`
         title
         text {
           raw
+        }
+        icons {
+          title
+          icon {
+            title
+            gatsbyImageData
+          }
+        }
+      }
+      projectsGrid {
+        __typename
+        id
+        title
+        projects {
+          title
+          link
+          image {
+            gatsbyImageData
+          }
+        }
+      }
+      skills {
+        __typename
+        id
+        title
+        text {
+          raw
+        }
+        image {
+          gatsbyImageData
+        }
+      }
+      iconsRow {
+        __typename
+        id
+        title
+        icons {
+          title
+          icon {
+            gatsbyImageData
+            title
+          }
         }
       }
     }
