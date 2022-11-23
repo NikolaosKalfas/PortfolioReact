@@ -5,7 +5,15 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        "h1-mob": ["50px", "60px"],
+        "h1-desk": ["70px", "80px"],
+      },
+      colors: {
+        "primary-color": "#eee",
+      },
+    },
   },
   plugins: [],
 };

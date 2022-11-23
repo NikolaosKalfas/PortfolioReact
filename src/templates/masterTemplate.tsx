@@ -45,6 +45,7 @@ export const pageQuery = graphql`
           raw
         }
         image {
+          title
           gatsbyImageData
         }
       }
