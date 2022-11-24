@@ -25,7 +25,7 @@ export default (data: any) => {
   return (
     <div>
       {blocks?.map((block, id) => (
-        <div key={id}>{block}</div>
+        <>{block}</>
       ))}
     </div>
   );

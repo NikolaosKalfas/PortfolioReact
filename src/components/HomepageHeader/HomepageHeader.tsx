@@ -1,10 +1,17 @@
 import React from "react";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { options } from "../../helpers/tools";
 import Typed from "react-typed";
 
-const HomepageHeader = ({ data }: any) => {
+type HomepageDataType = {
+  data: {
+    greeting: string;
+    headerCopy: any;
+    image: any;
+  };
+};
+
+const HomepageHeader = ({ data }: HomepageDataType) => {
   return (
     <div className="page-container bg-primary-color w-full md:flex md:items-center md:justify-between">
       <div>
@@ -13,10 +20,8 @@ const HomepageHeader = ({ data }: any) => {
             <Typed strings={[data.greeting]} typeSpeed={150} />
           </p>
         )}
-        {data.headerCopy.raw && (
-          <div className="header-copy">
-            {renderRichText(data.headerCopy, options)}
-          </div>
+        {data.headerCopy && (
+          <div className="header-copy">{renderRichText(data.headerCopy)}</div>
         )}
       </div>
       <div>

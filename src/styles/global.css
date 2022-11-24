@@ -4,11 +4,16 @@
 
 @layer base {
   * {
+    @apply text-text-color-primary;
     font-family: "muli", sans-serif;
   }
 
   h1 {
-    @apply text-h1-mob;
+    @apply text-5xl;
+  }
+
+  h2 {
+    @apply text-2xl;
   }
   .page-container {
     padding: 5% 10%;
@@ -17,9 +22,18 @@
     @apply text-2xl;
   }
 
+  @media screen and (min-width: 768px) {
+    h2 {
+      @apply text-3xl;
+    }
+  }
+
   @media screen and (min-width: 1024px) {
     h1 {
-      @apply text-h1-desk;
+      @apply text-7xl;
+    }
+    h2 {
+      @apply text-5xl;
     }
     .page-container {
       padding: 3% 10%;

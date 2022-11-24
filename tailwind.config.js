@@ -12,6 +12,10 @@ module.exports = {
       },
       colors: {
         "primary-color": "#eee",
+        "text-color-primary": "#383838",
+      },
+      maxWidth: {
+        60: "60px",
       },
     },
   },
