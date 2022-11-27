@@ -22,13 +22,8 @@ export default (data: any) => {
   console.log(componentsArr);
   console.log(blocks);
   console.log(pageData);
-  return (
-    <div>
-      {blocks?.map((block, id) => (
-        <>{block}</>
-      ))}
-    </div>
-  );
+
+  return <div>{blocks?.map((block) => block)}</div>;
 };
 
 export const pageQuery = graphql`
@@ -84,6 +79,7 @@ export const pageQuery = graphql`
           raw
         }
         image {
+          title
           gatsbyImageData
         }
       }

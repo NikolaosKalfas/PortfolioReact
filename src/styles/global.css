@@ -15,6 +15,10 @@
   h2 {
     @apply text-2xl;
   }
+  li {
+    @apply text-xl pb-3 list-disc;
+  }
+
   .page-container {
     padding: 5% 10%;
   }
@@ -22,9 +26,39 @@
     @apply text-2xl;
   }
 
+  /* projects grid */
+  .grid-card-overlay p {
+    line-height: 0;
+  }
+
+  .grid-card:hover .grid-card-overlay {
+    @apply absolute;
+    background: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: 0.5s ease;
+  }
+
+  .grid-card:hover .grid-card-overlay p {
+    @apply text-text-color-primary font-semibold absolute text-center bg-white border-primary-color border-2 hover:text-white hover:bg-secondary-color hover:duration-300;
+    border-radius: 3px;
+    line-height: 24px;
+    left: 50%;
+    padding: 3% 5%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
   @media screen and (min-width: 768px) {
     h2 {
       @apply text-3xl;
+    }
+    li {
+      @apply text-2xl;
     }
   }
 

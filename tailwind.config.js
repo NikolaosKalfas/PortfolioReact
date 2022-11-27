@@ -12,10 +12,12 @@ module.exports = {
       },
       colors: {
         "primary-color": "#eee",
+        "secondary-color": "#383838",
         "text-color-primary": "#383838",
       },
       maxWidth: {
         60: "60px",
+        200: "200px",
       },
     },
   },
