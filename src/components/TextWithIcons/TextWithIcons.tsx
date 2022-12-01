@@ -24,7 +24,7 @@ const TextWithIcons = ({ data }: TextWithIconsDataType) => {
       {data.icons.length && (
         <div className="flex flex-col items-center md:flex-row gap-7 justify-around lg:pt-5">
           {data.icons.map((icon) => (
-            <div>
+            <div key={icon.title}>
               <div className="max-w-60 m-auto">
                 <Icon icon={icon} key={icon.title} />
               </div>

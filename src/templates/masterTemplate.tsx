@@ -14,6 +14,7 @@ export default (data: any) => {
     componentsArr.push(pageData.projectsGrid);
     componentsArr.push(pageData.skills);
     componentsArr.push(pageData.iconsRow);
+    componentsArr.push(pageData.contactForm);
   }
 
   createComponentsArr();
@@ -94,6 +95,15 @@ export const pageQuery = graphql`
             title
           }
         }
+      }
+      contactForm {
+        __typename
+        id
+        title
+        name
+        email
+        phone
+        message
       }
     }
   }

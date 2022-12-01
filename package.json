@@ -17,6 +17,7 @@
     "cleanstart": "gatsby clean && gatsby develop"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "gatsby": "^4.24.4",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-sharp": "^4.24.0",
