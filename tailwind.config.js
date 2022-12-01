@@ -15,6 +15,14 @@ module.exports = {
         "secondary-color": "#383838",
         "text-color-primary": "#383838",
       },
+      minHeight: {
+        60: "60px",
+        200: "200px",
+      },
+      minWidth: {
+        60: "60px",
+        200: "200px",
+      },
       maxWidth: {
         60: "60px",
         200: "200px",

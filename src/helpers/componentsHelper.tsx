@@ -4,6 +4,7 @@ import TextWithIcons from "../components/TextWithIcons/TextWithIcons";
 import ProjectsGrid from "../components/ProjectsGrid/ProjectsGrid";
 import ImageLeftWithText from "../components/ImageLeftWithText/ImageLeftWithText";
 import IconsRow from "../components/IconsRow/IconsRow";
+import ContactForm from "../components/ContactForm/ContactForm";
 
 const componentMap: any = {
   ContentfulHomepageHeader: (v: any) => <HomepageHeader data={v} key={v.id} />,
@@ -13,6 +14,7 @@ const componentMap: any = {
     <ImageLeftWithText data={v} key={v.id} />
   ),
   ContentfulIconsRow: (v: any) => <IconsRow data={v} key={v.id} />,
+  ContentfulContactForm: (v: any) => <ContactForm data={v} key={v.id} />,
 };
 
 export const componentBuilder = (strapiComponents: any[]) => {

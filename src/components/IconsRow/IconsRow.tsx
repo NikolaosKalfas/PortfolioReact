@@ -21,7 +21,7 @@ const IconsRow = ({ data }: IconsRowDataType) => {
       {data.icons && (
         <div className="flex flex-wrap justify-between gap-10">
           {data.icons.map((icon) => (
-            <div className="max-w-200 m-auto">
+            <div className="max-w-200 m-auto" key={icon.title}>
               <Icon icon={icon} key={icon.title} />
             </div>
           ))}
