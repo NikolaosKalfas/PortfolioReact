@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { componentBuilder } from "../helpers/componentsHelper";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 
 export default (data: any) => {
+  const [url, setUrl] = useState("");
   const pageData = data.data.page;
   const componentsArr: any = [];
+
+  useEffect(() => {
+    if (window.location !== undefined) {
+      setUrl(window.location.href);
+    }
+  }, []);
 
   // TODO: push if key is not id || slug || title
   // so that reordering from CMS works
@@ -25,7 +33,36 @@ export default (data: any) => {
   console.log(blocks);
   console.log(pageData);
 
-  return <div>{blocks?.map((block) => block)}</div>;
+  return (
+    <div>
+      <GatsbySeo
+        title={pageData.seo.title + " - Nikolaos Kalfas"}
+        description={pageData.seo.description}
+        canonical={url}
+        openGraph={{
+          url: url,
+          title: pageData.seo.title,
+          description: pageData.seo.description,
+          images: [
+            {
+              url: pageData.seo.image.file.url,
+              width: 420,
+              height: 420,
+              alt: pageData.seo.image.title,
+            },
+          ],
+        }}
+        twitter={{
+          handle: "@handle",
+          site: "@site",
+          cardType: "summary_large_image",
+        }}
+        noindex={pageData.seo.noIndex}
+        nofollow={pageData.seo.noFollow}
+      />
+      {blocks?.map((block) => block)}
+    </div>
+  );
 };
 
 export const pageQuery = graphql`
@@ -34,6 +71,18 @@ export const pageQuery = graphql`
       id
       title
       slug
+      seo {
+        title
+        description
+        image {
+          title
+          file {
+            url
+          }
+        }
+        noIndex
+        noFollow
+      }
       header {
         __typename
         id

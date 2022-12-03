@@ -60,54 +60,58 @@ const ContactForm = ({ data }: any) => {
   };
 
   return (
-    <div className="page-container bg-secondary-color">
-      <SectionTitle title={data.title} secondary />
-      {formSubmited ? (
-        <div className="m-auto max-w-sm text-center">
-          <StaticImage
-            src="../../images/tick.png"
-            alt="green tick"
-            className="max-w-200 "
-          />
-          <p className="text-white mb-5 text-xl lg:text-2xl">
-            Thank you for getting in touch. I will get back to you as soon as
-            possible!
-          </p>
+    <>
+      {data.title && (
+        <div className="page-container bg-secondary-color">
+          <SectionTitle title={data.title} secondary />
+          {formSubmited ? (
+            <div className="m-auto max-w-sm text-center">
+              <StaticImage
+                src="../../images/tick.png"
+                alt="green tick"
+                className="max-w-200 "
+              />
+              <p className="text-white mb-5 text-xl lg:text-2xl">
+                Thank you for getting in touch. I will get back to you as soon
+                as possible!
+              </p>
+            </div>
+          ) : (
+            <form className="max-w-xs m-auto" ref={form} onSubmit={sendEmail}>
+              {data.name && (
+                <InputText
+                  nameFor="user_name"
+                  setInputValue={setName}
+                  setInputValidity={setIsNameValid}
+                />
+              )}
+              {data.email && (
+                <InputEmail
+                  nameFor="user_email"
+                  setInputValue={setEmail}
+                  setInputValidity={setIsEmailValid}
+                />
+              )}{" "}
+              {data.phone && (
+                <InputPhone
+                  nameFor="user_phone"
+                  setInputValue={setPhone}
+                  setInputValidity={setIsPhoneValid}
+                />
+              )}
+              {data.message && (
+                <InputMessage
+                  nameFor="message"
+                  setInputValue={setMessage}
+                  setInputValidity={setIsMessageValid}
+                />
+              )}
+              <InputSubmit disabledBtn={submitDisabled} />
+            </form>
+          )}
         </div>
-      ) : (
-        <form className="max-w-xs m-auto" ref={form} onSubmit={sendEmail}>
-          {data.name && (
-            <InputText
-              nameFor="user_name"
-              setInputValue={setName}
-              setInputValidity={setIsNameValid}
-            />
-          )}
-          {data.email && (
-            <InputEmail
-              nameFor="user_email"
-              setInputValue={setEmail}
-              setInputValidity={setIsEmailValid}
-            />
-          )}{" "}
-          {data.phone && (
-            <InputPhone
-              nameFor="user_phone"
-              setInputValue={setPhone}
-              setInputValidity={setIsPhoneValid}
-            />
-          )}
-          {data.message && (
-            <InputMessage
-              nameFor="message"
-              setInputValue={setMessage}
-              setInputValidity={setIsMessageValid}
-            />
-          )}
-          <InputSubmit disabledBtn={submitDisabled} />
-        </form>
       )}
-    </div>
+    </>
   );
 };
 

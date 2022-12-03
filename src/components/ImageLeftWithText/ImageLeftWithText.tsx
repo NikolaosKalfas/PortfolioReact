@@ -16,22 +16,26 @@ type ImageLeftWithTextDataType = {
 
 const ImageLeftWithText = ({ data }: ImageLeftWithTextDataType) => {
   return (
-    <div className="page-container bg-primary-color">
-      {data.title && <SectionTitle title={data.title} />}
-      <div className="md:flex md:gap-5">
-        <div className="md:w-1/2">
-          <GatsbyImage
-            image={data.image.gatsbyImageData}
-            alt={data.image.title}
-          />
+    <>
+      {data.title && (
+        <div className="page-container bg-primary-color">
+          {data.title && <SectionTitle title={data.title} />}
+          <div className="md:flex md:gap-5">
+            <div className="md:w-1/2">
+              <GatsbyImage
+                image={data.image.gatsbyImageData}
+                alt={data.image.title}
+              />
+            </div>
+            <div className="md:w-1/2 lg:1/3">
+              {data.text && (
+                <div className="my-5 text-xl">{renderRichText(data.text)}</div>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="md:w-1/2 lg:1/3">
-          {data.text && (
-            <div className="my-5 text-xl">{renderRichText(data.text)}</div>
-          )}
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
