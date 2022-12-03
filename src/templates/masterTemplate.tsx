@@ -10,6 +10,7 @@ export default (data: any) => {
   // so that reordering from CMS works
   function createComponentsArr() {
     componentsArr.push(pageData.header);
+    componentsArr.push(pageData.secondaryHeader);
     componentsArr.push(pageData.titleAndText);
     componentsArr.push(pageData.projectsGrid);
     componentsArr.push(pageData.skills);
@@ -49,6 +50,11 @@ export const pageQuery = graphql`
           buttonLink
           secondary
         }
+      }
+      secondaryHeader {
+        __typename
+        id
+        heading
       }
       titleAndText {
         __typename
