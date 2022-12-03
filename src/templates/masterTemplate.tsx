@@ -44,6 +44,11 @@ export const pageQuery = graphql`
           title
           gatsbyImageData
         }
+        button {
+          buttonLabel
+          buttonLink
+          secondary
+        }
       }
       titleAndText {
         __typename

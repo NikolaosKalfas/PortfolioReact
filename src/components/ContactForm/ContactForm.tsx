@@ -24,6 +24,21 @@ const ContactForm = ({ data }: any) => {
   const [formSubmited, setFormSubmited] = useState(false);
 
   useEffect(() => {
+    if (!data.name) {
+      setIsNameValid(true);
+    }
+    if (!data.email) {
+      setIsEmailValid(true);
+    }
+    if (!data.phone) {
+      setIsPhoneValid(true);
+    }
+    if (!data.message) {
+      setIsMessageValid(true);
+    }
+  }, []);
+
+  useEffect(() => {
     if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
       setSubmitDisabled(false);
     } else {
