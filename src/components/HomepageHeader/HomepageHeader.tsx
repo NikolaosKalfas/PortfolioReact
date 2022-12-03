@@ -2,18 +2,26 @@ import React from "react";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Typed from "react-typed";
+import { Link } from "gatsby";
+import Button from "../Button/Button";
 
 type HomepageDataType = {
   data: {
     greeting: string;
     headerCopy: any;
     image: any;
+    button: {
+      buttonLabel: string;
+      buttonLink: string;
+      secondary: boolean;
+    };
   };
 };
 
 const HomepageHeader = ({ data }: HomepageDataType) => {
+  console.log(data);
   return (
-    <div className="page-container bg-primary-color w-full md:flex md:items-center md:justify-between">
+    <div className="page-container bg-primary-color w-full flex flex-col md:flex-row md:items-center md:justify-between">
       <div>
         {data.greeting && (
           <p className="text-2xl md:text-4xl font-bold">
@@ -22,6 +30,14 @@ const HomepageHeader = ({ data }: HomepageDataType) => {
         )}
         {data.headerCopy && (
           <div className="header-copy">{renderRichText(data.headerCopy)}</div>
+        )}
+        {data.button && (
+          <div className="my-4">
+            <Button
+              label={data.button.buttonLabel}
+              url={data.button.buttonLink}
+            />
+          </div>
         )}
       </div>
       <div>

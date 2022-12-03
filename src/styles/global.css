@@ -78,17 +78,13 @@
     transform: translate(-50%, -50%);
   }
 
-  .button-main {
-    @apply text-text-color-primary font-semibold absolute text-center bg-white border-primary-color border-2 hover:text-white hover:bg-secondary-color hover:duration-300;
-    border-radius: 3px;
-    line-height: 24px;
-    left: 50%;
-    padding: 3% 5%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  .btn-primary {
+    @apply cursor-pointer hover:text-text-color-primary font-semibold text-center hover:bg-white bg-secondary-color text-white border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
   }
+  .btn-secondary {
+    @apply cursor-pointer text-text-color-primary font-semibold text-center bg-white hover:bg-secondary-color hover:text-white border-secondary-color hover:border-white  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
+  }
+
   @media screen and (min-width: 768px) {
     h2 {
       @apply text-3xl;
