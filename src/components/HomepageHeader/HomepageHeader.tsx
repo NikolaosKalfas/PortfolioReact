@@ -2,7 +2,6 @@ import React from "react";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Typed from "react-typed";
-import { Link } from "gatsby";
 import Button from "../Button/Button";
 
 type HomepageDataType = {
@@ -19,7 +18,6 @@ type HomepageDataType = {
 };
 
 const HomepageHeader = ({ data }: HomepageDataType) => {
-  console.log(data);
   return (
     <div className="page-container bg-primary-color w-full flex flex-col md:flex-row md:items-center md:justify-between">
       <div>

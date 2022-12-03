@@ -5,9 +5,13 @@ import ProjectsGrid from "../components/ProjectsGrid/ProjectsGrid";
 import ImageLeftWithText from "../components/ImageLeftWithText/ImageLeftWithText";
 import IconsRow from "../components/IconsRow/IconsRow";
 import ContactForm from "../components/ContactForm/ContactForm";
+import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 
 const componentMap: any = {
   ContentfulHomepageHeader: (v: any) => <HomepageHeader data={v} key={v.id} />,
+  ContentfulSecondaryHeader: (v: any) => (
+    <SecondaryHeader data={v} key={v.id} />
+  ),
   ContentfulTitleAndText: (v: any) => <TextWithIcons data={v} key={v.id} />,
   ContentfulProjects: (v: any) => <ProjectsGrid data={v} key={v.id} />,
   ContentfulImageLeftWithText: (v: any) => (
