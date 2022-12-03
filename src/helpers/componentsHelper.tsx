@@ -27,7 +27,7 @@ export const componentBuilder = (strapiComponents: any[]) => {
 
     try {
       // find matching component type
-      let builderFn = componentMap[component.__typename];
+      let builderFn = componentMap[component?.__typename];
       // call build function to a JSX component
       itemsResult = builderFn(component);
     } catch {

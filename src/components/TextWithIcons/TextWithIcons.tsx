@@ -14,28 +14,34 @@ type TextWithIconsDataType = {
 
 const TextWithIcons = ({ data }: TextWithIconsDataType) => {
   return (
-    <section className="page-container">
-      {data.title && <SectionTitle title={data.title} />}
-      {data.text && (
-        <div className="mb-5 text-xl lg:text-2xl">
-          {renderRichText(data.text)}
-        </div>
-      )}
-      {data.icons.length && (
-        <div className="flex flex-col items-center md:flex-row gap-7 justify-around lg:pt-5">
-          {data.icons.map((icon) => (
-            <div key={icon.title}>
-              <div className="max-w-60 m-auto">
-                <Icon icon={icon} key={icon.title} />
-              </div>
-              {icon.title && (
-                <p className="text-xl font-bold text-center">{icon.title}</p>
-              )}
+    <>
+      {data.title && (
+        <section className="page-container">
+          {data.title && <SectionTitle title={data.title} />}
+          {data.text && (
+            <div className="mb-5 text-xl lg:text-2xl">
+              {renderRichText(data.text)}
             </div>
-          ))}
-        </div>
+          )}
+          {data.icons.length && (
+            <div className="flex flex-col items-center md:flex-row gap-7 justify-around lg:pt-5">
+              {data.icons.map((icon) => (
+                <div key={icon.title}>
+                  <div className="max-w-60 m-auto">
+                    <Icon icon={icon} key={icon.title} />
+                  </div>
+                  {icon.title && (
+                    <p className="text-xl font-bold text-center">
+                      {icon.title}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
       )}
-    </section>
+    </>
   );
 };
 
