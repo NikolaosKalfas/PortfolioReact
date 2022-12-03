@@ -3,6 +3,8 @@ require("dotenv").config({
   path: `.env`,
 });
 
+const SITE_URL = "https://nikolaoskalfas.com";
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Portfolio React`,
@@ -15,6 +17,33 @@ const config: GatsbyConfig = {
       options: {
         accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
         spaceId: process.env.CONTENTFUL_SPACEID,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        resolveSiteUrl: () => SITE_URL,
+        query: `
+          {
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+          }`,
+        resolvePages: ({ allSitePage }: any) => {
+          // not necessary but keeping here for clarity and possible extension
+          let allPages = allSitePage.nodes; // : Array<string>
+          return allPages.map((page: any) => {
+            return { ...page };
+          });
+        },
+        serialize: ({ path }: any) => {
+          // each page is serialized, formatted from the resolvePages function
+          return {
+            url: path,
+          };
+        },
       },
     },
     "gatsby-plugin-image",
