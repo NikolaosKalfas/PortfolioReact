@@ -23,6 +23,10 @@
     @apply text-xl pb-3 list-disc;
   }
 
+  p {
+    @apply mb-5 text-xl lg:text-2xl;
+  }
+
   input[type="text"],
   input[type="email"],
   input[type="tel"],
