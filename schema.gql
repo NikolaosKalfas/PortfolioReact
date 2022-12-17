@@ -1,4 +1,4 @@
-### Type definitions saved at 2022-12-17T14:11:44.154Z ###
+### Type definitions saved at 2022-12-17T14:21:07.525Z ###
 
 enum RemoteFileFit {
   COVER
@@ -580,9 +580,9 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
+  skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
-  skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
   iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
 }
 
@@ -590,11 +590,11 @@ type ContentfulSecondaryHeader implements ContentfulReference & ContentfulEntry 
   contentful_id: String!
   node_locale: String!
   heading: String
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulSecondaryHeaderSys
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulSecondaryHeaderSys @derivedTypes {
@@ -781,6 +781,39 @@ type ContentfulPageSysContentTypeSys {
   id: String
 }
 
+type ContentfulImageLeftWithText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  text: ContentfulImageLeftWithTextText
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulImageLeftWithTextSys
+}
+
+type ContentfulImageLeftWithTextText {
+  raw: String
+}
+
+type ContentfulImageLeftWithTextSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulImageLeftWithTextSysContentType
+}
+
+type ContentfulImageLeftWithTextSysContentType @derivedTypes {
+  sys: ContentfulImageLeftWithTextSysContentTypeSys
+}
+
+type ContentfulImageLeftWithTextSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
 type ContentfulProjects implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
@@ -833,39 +866,6 @@ type ContentfulProjectsSysContentType @derivedTypes {
 }
 
 type ContentfulProjectsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulImageLeftWithText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  text: ContentfulImageLeftWithTextText
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulImageLeftWithTextSys
-}
-
-type ContentfulImageLeftWithTextText {
-  raw: String
-}
-
-type ContentfulImageLeftWithTextSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulImageLeftWithTextSysContentType
-}
-
-type ContentfulImageLeftWithTextSysContentType @derivedTypes {
-  sys: ContentfulImageLeftWithTextSysContentTypeSys
-}
-
-type ContentfulImageLeftWithTextSysContentTypeSys {
   type: String
   linkType: String
   id: String
