@@ -23,7 +23,7 @@ const TextWithIcons = ({ data }: TextWithIconsDataType) => {
               {renderRichText(data.text)}
             </div>
           )}
-          {data.icons.length && (
+          {data.icons?.length && (
             <div className="flex flex-col items-center md:flex-row gap-7 justify-around lg:pt-5">
               {data.icons.map((icon) => (
                 <div key={icon.title}>

@@ -1,4 +1,4 @@
-### Type definitions saved at 2022-12-17T13:58:08.674Z ###
+### Type definitions saved at 2022-12-17T14:11:44.154Z ###
 
 enum RemoteFileFit {
   COVER
@@ -574,16 +574,16 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   title: String
   slug: String
   seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
-  header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   titleAndText: ContentfulTitleAndText @link(by: "id", from: "titleAndText___NODE")
-  projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
-  skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
-  iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
   contactForm: ContentfulContactForm @link(by: "id", from: "contactForm___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
+  header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
+  projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
+  skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
+  iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
 }
 
 type ContentfulSecondaryHeader implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -594,6 +594,7 @@ type ContentfulSecondaryHeader implements ContentfulReference & ContentfulEntry 
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulSecondaryHeaderSys
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulSecondaryHeaderSys @derivedTypes {
@@ -733,6 +734,53 @@ type ContentfulTitleAndTextSysContentTypeSys {
   id: String
 }
 
+type ContentfulContactForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  name: Boolean
+  email: Boolean
+  phone: Boolean
+  message: Boolean
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulContactFormSys
+}
+
+type ContentfulContactFormSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulContactFormSysContentType
+}
+
+type ContentfulContactFormSysContentType @derivedTypes {
+  sys: ContentfulContactFormSysContentTypeSys
+}
+
+type ContentfulContactFormSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulPageSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulPageSysContentType
+}
+
+type ContentfulPageSysContentType @derivedTypes {
+  sys: ContentfulPageSysContentTypeSys
+}
+
+type ContentfulPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
 type ContentfulProjects implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
@@ -818,53 +866,6 @@ type ContentfulImageLeftWithTextSysContentType @derivedTypes {
 }
 
 type ContentfulImageLeftWithTextSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulContactForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  name: Boolean
-  email: Boolean
-  phone: Boolean
-  message: Boolean
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulContactFormSys
-}
-
-type ContentfulContactFormSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulContactFormSysContentType
-}
-
-type ContentfulContactFormSysContentType @derivedTypes {
-  sys: ContentfulContactFormSysContentTypeSys
-}
-
-type ContentfulContactFormSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulPageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulPageSysContentType
-}
-
-type ContentfulPageSysContentType @derivedTypes {
-  sys: ContentfulPageSysContentTypeSys
-}
-
-type ContentfulPageSysContentTypeSys {
   type: String
   linkType: String
   id: String
