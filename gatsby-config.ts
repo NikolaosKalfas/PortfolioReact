@@ -20,6 +20,13 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: "gatsby-plugin-schema-snapshot",
+      options: {
+        path: "schema.gql",
+        update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
+      },
+    },
+    {
       resolve: "gatsby-plugin-sitemap",
       options: {
         resolveSiteUrl: () => SITE_URL,

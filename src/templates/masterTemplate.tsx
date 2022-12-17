@@ -14,8 +14,6 @@ export default (data: any) => {
     }
   }, []);
 
-  // TODO: push if key is not id || slug || title
-  // so that reordering from CMS works
   function createComponentsArr() {
     componentsArr.push(pageData.header);
     componentsArr.push(pageData.secondaryHeader);
