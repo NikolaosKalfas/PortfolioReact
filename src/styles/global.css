@@ -8,6 +8,10 @@
     font-family: "muli", sans-serif;
   }
 
+  body {
+    @apply min-h-screen;
+  }
+
   h1 {
     @apply text-5xl;
   }

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,jsx,ts,tsx}",
+    "./src/pages/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
@@ -14,6 +14,7 @@ module.exports = {
         "primary-color": "#eee",
         "secondary-color": "#383838",
         "text-color-primary": "#383838",
+        "link-primary": "#1F51FF",
       },
       width: {
         200: "200px",
