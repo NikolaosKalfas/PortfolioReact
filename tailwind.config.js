@@ -15,6 +15,7 @@ module.exports = {
         "secondary-color": "#383838",
         "text-color-primary": "#383838",
         "link-primary": "#1F51FF",
+        "navigation-color": "#28282B",
       },
       width: {
         200: "200px",
@@ -28,6 +29,7 @@ module.exports = {
         200: "200px",
       },
       maxWidth: {
+        25: "25px",
         60: "60px",
         200: "200px",
       },

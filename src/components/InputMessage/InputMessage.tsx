@@ -36,7 +36,7 @@ const InputMessage = ({
         onChange={(e) => handleInputChange(e, setValue, setInputValue)}
         onBlur={validateInput}
       ></textarea>
-      {err.error && <p className="text-red-400">{err.message}</p>}
+      {err.error && <p className="text-red-400 text-sm">{err.message}</p>}
     </div>
   );
 };
