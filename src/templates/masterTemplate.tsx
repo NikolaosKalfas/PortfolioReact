@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import { componentBuilder } from "../helpers/componentsHelper";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
+import Footer from "../components/Footer/Footer";
 
 export default (data: any) => {
   const [url, setUrl] = useState("");
@@ -59,6 +60,7 @@ export default (data: any) => {
         nofollow={pageData.seo.noFollow}
       />
       {blocks?.map((block) => block)}
+      <Footer />
     </div>
   );
 };

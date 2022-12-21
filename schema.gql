@@ -1,4 +1,4 @@
-### Type definitions saved at 2022-12-17T15:23:55.267Z ###
+### Type definitions saved at 2022-12-21T19:40:28.364Z ###
 
 enum RemoteFileFit {
   COVER
@@ -882,6 +882,89 @@ type ContentfulHomepageHeaderSysContentType @derivedTypes {
 }
 
 type ContentfulHomepageHeaderSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulNavigationLink implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  label: String
+  link: String
+  footer: [ContentfulFooter] @link(by: "id", from: "footer___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulNavigationLinkSys
+}
+
+type ContentfulFooter implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  footerLink: [ContentfulNavigationLink] @link(by: "id", from: "footerLink___NODE")
+  socialLink: [ContentfulSocialIcons] @link(by: "id", from: "socialLink___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulFooterSys
+}
+
+type ContentfulSocialIcons implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  link: String
+  icon: ContentfulAsset @link(by: "id", from: "icon___NODE")
+  footer: [ContentfulFooter] @link(by: "id", from: "footer___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulSocialIconsSys
+}
+
+type ContentfulSocialIconsSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulSocialIconsSysContentType
+}
+
+type ContentfulSocialIconsSysContentType @derivedTypes {
+  sys: ContentfulSocialIconsSysContentTypeSys
+}
+
+type ContentfulSocialIconsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulFooterSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulFooterSysContentType
+}
+
+type ContentfulFooterSysContentType @derivedTypes {
+  sys: ContentfulFooterSysContentTypeSys
+}
+
+type ContentfulFooterSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulNavigationLinkSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulNavigationLinkSysContentType
+}
+
+type ContentfulNavigationLinkSysContentType @derivedTypes {
+  sys: ContentfulNavigationLinkSysContentTypeSys
+}
+
+type ContentfulNavigationLinkSysContentTypeSys {
   type: String
   linkType: String
   id: String
