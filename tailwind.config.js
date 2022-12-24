@@ -17,6 +17,9 @@ module.exports = {
         "link-primary": "#1F51FF",
         "navigation-color": "#28282B",
       },
+      padding: {
+        80: "80px",
+      },
       width: {
         200: "200px",
       },
