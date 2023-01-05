@@ -8,7 +8,9 @@ type SectionTitleDataType = {
 const SectionTitle = ({ title, secondary }: SectionTitleDataType) => {
   return (
     <h2
-      className={`text-center font-bold pb-10 ${secondary ? "text-white" : ""}`}
+      className={`md:text-center font-bold pb-10 ${
+        secondary ? "text-white" : ""
+      }`}
     >
       {title}
     </h2>

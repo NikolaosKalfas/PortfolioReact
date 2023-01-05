@@ -15,6 +15,10 @@
     @apply min-h-screen;
   }
 
+  .body-no-scroll {
+    @apply overflow-hidden;
+  }
+
   h1 {
     @apply text-5xl;
   }
@@ -57,6 +61,20 @@
 
   .page-container {
     padding: 5% 10%;
+  }
+  .nav-container {
+    padding: 0 10%;
+    height: 70px;
+  }
+  .nav-container-mob {
+    padding: 0 10%;
+    height: 50px;
+  }
+  .navbar-link {
+    padding: 0 20px;
+  }
+  .navbar-link:last-of-type {
+    padding-right: 0;
   }
   .header-copy p {
     @apply text-2xl;

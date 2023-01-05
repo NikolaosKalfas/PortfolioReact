@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { componentBuilder } from "../helpers/componentsHelper";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Footer from "../components/Footer/Footer";
+import NavbarContainer from "../components/Navbar/NavbarContainer";
 
 export default (data: any) => {
   const [url, setUrl] = useState("");
@@ -59,6 +60,8 @@ export default (data: any) => {
         noindex={pageData.seo.noIndex}
         nofollow={pageData.seo.noFollow}
       />
+
+      <NavbarContainer />
       {blocks?.map((block) => block)}
       <Footer />
     </div>

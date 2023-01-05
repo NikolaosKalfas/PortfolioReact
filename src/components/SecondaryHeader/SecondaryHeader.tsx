@@ -10,7 +10,7 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
   return (
     <>
       {data.heading && (
-        <div className="page-container bg-primary-color w-full">
+        <div className="page-container bg-primary-color w-full pt-80">
           <div>
             {/* TODO
       CREATE BREADCRUMBS */}
