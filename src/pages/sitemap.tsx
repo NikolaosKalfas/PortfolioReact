@@ -7,7 +7,6 @@ import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 const Sitemap = () => {
   const query = useStaticQuery(result);
   const links = query.allContentfulPage.nodes;
-  console.log(links);
 
   return (
     <>

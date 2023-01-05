@@ -8,8 +8,6 @@ const NavbarMobile = () => {
   const navbarData = query.contentfulNavbar;
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(navbarData);
-
   const openNav = () => {
     setIsOpen(true);
     document.body.classList.add("body-no-scroll");
