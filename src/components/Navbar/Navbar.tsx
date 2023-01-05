@@ -7,7 +7,7 @@ const Navbar = () => {
   const navbarData = query.contentfulNavbar;
 
   return (
-    <nav className=" hidden md:block fixed border-b border-b-primary-color bg-navigation-color w-full top-0 z-50 ">
+    <nav className="hidden md:block fixed border-b border-b-primary-color bg-navigation-color w-full top-0 z-50 ">
       <div className="nav-container flex items-center justify-between">
         <div className="text-white">
           <Link
