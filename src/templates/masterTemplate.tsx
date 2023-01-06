@@ -22,6 +22,7 @@ export default (data: any) => {
     componentsArr.push(pageData.titleAndText);
     componentsArr.push(pageData.projectsGrid);
     componentsArr.push(pageData.skills);
+    componentsArr.push(pageData.productCardsSlider);
     componentsArr.push(pageData.iconsRow);
     componentsArr.push(pageData.contactForm);
   }
@@ -167,6 +168,31 @@ export const pageQuery = graphql`
         email
         phone
         message
+      }
+      productCardsSlider {
+        __typename
+        id
+        title
+        sliderProductCard {
+          cardImage {
+            gatsbyImageData
+            title
+          }
+          mainButton {
+            buttonLabel
+            buttonLink
+            secondary
+          }
+          secondaryButton {
+            buttonLabel
+            buttonLink
+            secondary
+          }
+          title
+          included {
+            title
+          }
+        }
       }
     }
   }

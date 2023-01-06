@@ -114,6 +114,14 @@
     @apply cursor-pointer text-text-color-primary font-semibold text-center bg-white hover:bg-secondary-color hover:text-white border-secondary-color hover:border-white  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
   }
 
+  .swiper {
+    @apply pb-5 !important;
+  }
+
+  .swiper .swiper-slide {
+    @apply h-auto;
+  }
+
   @media screen and (min-width: 768px) {
     h2 {
       @apply text-3xl;
