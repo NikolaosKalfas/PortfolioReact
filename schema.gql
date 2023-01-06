@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-05T20:35:40.547Z ###
+### Type definitions saved at 2023-01-06T20:32:53.610Z ###
 
 enum RemoteFileFit {
   COVER
@@ -545,26 +545,65 @@ type ContentfulButton implements ContentfulReference & ContentfulEntry & Node @d
   buttonLink: String
   secondary: Boolean
   homepage_header: [ContentfulHomepageHeader] @link(by: "id", from: "homepage header___NODE") @proxy(from: "homepage header___NODE")
+  product_card: [ContentfulProductCard] @link(by: "id", from: "product card___NODE") @proxy(from: "product card___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulButtonSys
 }
 
-type ContentfulButtonSys @derivedTypes {
+type ContentfulProductCard implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  cardImage: ContentfulAsset @link(by: "id", from: "cardImage___NODE")
+  included: [ContentfulProductCardPoint] @link(by: "id", from: "included___NODE")
+  mainButton: ContentfulButton @link(by: "id", from: "mainButton___NODE")
+  secondaryButton: ContentfulButton @link(by: "id", from: "secondaryButton___NODE")
+  products_slider: [ContentfulProductsSlider] @link(by: "id", from: "products slider___NODE") @proxy(from: "products slider___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulProductCardSys
+}
+
+type ContentfulProductCardPoint implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  product_card: [ContentfulProductCard] @link(by: "id", from: "product card___NODE") @proxy(from: "product card___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulProductCardPointSys
+}
+
+type ContentfulProductCardPointSys @derivedTypes {
   type: String
   revision: Int
-  contentType: ContentfulButtonSysContentType
+  contentType: ContentfulProductCardPointSysContentType
 }
 
-type ContentfulButtonSysContentType @derivedTypes {
-  sys: ContentfulButtonSysContentTypeSys
+type ContentfulProductCardPointSysContentType @derivedTypes {
+  sys: ContentfulProductCardPointSysContentTypeSys
 }
 
-type ContentfulButtonSysContentTypeSys {
+type ContentfulProductCardPointSysContentTypeSys {
   type: String
   linkType: String
   id: String
+}
+
+type ContentfulProductsSlider implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  sliderProductCard: [ContentfulProductCard] @link(by: "id", from: "sliderProductCard___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulProductsSliderSys
 }
 
 type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -583,6 +622,7 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
+  productCardsSlider: ContentfulProductsSlider @link(by: "id", from: "productCardsSlider___NODE")
   iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
 }
 
@@ -866,6 +906,54 @@ type ContentfulProjectsSysContentType @derivedTypes {
 }
 
 type ContentfulProjectsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulProductsSliderSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulProductsSliderSysContentType
+}
+
+type ContentfulProductsSliderSysContentType @derivedTypes {
+  sys: ContentfulProductsSliderSysContentTypeSys
+}
+
+type ContentfulProductsSliderSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulProductCardSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulProductCardSysContentType
+}
+
+type ContentfulProductCardSysContentType @derivedTypes {
+  sys: ContentfulProductCardSysContentTypeSys
+}
+
+type ContentfulProductCardSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulButtonSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulButtonSysContentType
+}
+
+type ContentfulButtonSysContentType @derivedTypes {
+  sys: ContentfulButtonSysContentTypeSys
+}
+
+type ContentfulButtonSysContentTypeSys {
   type: String
   linkType: String
   id: String
