@@ -7,6 +7,7 @@ import IconsRow from "../components/IconsRow/IconsRow";
 import ContactForm from "../components/ContactForm/ContactForm";
 import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 import ProductsSlider from "../components/ProductsSlider/ProductsSlider";
+import ConsultancyForm from "../components/ConsultancyForm/ConsultancyForm";
 
 const componentMap: any = {
   ContentfulHomepageHeader: (v: any) => <HomepageHeader data={v} key={v.id} />,
@@ -21,6 +22,9 @@ const componentMap: any = {
   ContentfulIconsRow: (v: any) => <IconsRow data={v} key={v.id} />,
   ContentfulContactForm: (v: any) => <ContactForm data={v} key={v.id} />,
   ContentfulProductsSlider: (v: any) => <ProductsSlider data={v} key={v.id} />,
+  ContentfulConsultancyForm: (v: any) => (
+    <ConsultancyForm data={v} key={v.id} />
+  ),
 };
 
 export const componentBuilder = (strapiComponents: any[]) => {

@@ -12,7 +12,7 @@ const ProductsSlider = (data: any) => {
   const cards = data.data.sliderProductCard;
   return (
     <div className="page-container">
-      <SectionTitle title={data.data.title} />
+      {data.data.title && <SectionTitle title={data.data.title} />}
       <Swiper
         slidesPerView={1}
         spaceBetween={50}

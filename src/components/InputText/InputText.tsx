@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import { handleInputChange } from "../../helpers/tools";
 
 export type InputType = {
+  label?: string;
   nameFor: string;
   setInputValue: (arg: string) => void;
   setInputValidity: (arg: boolean) => void;
 };
 
-const InputText = ({ nameFor, setInputValue, setInputValidity }: InputType) => {
+const InputText = ({
+  label,
+  nameFor,
+  setInputValue,
+  setInputValidity,
+}: InputType) => {
   const [value, setValue] = useState("");
   const [isValid, setIsValid] = useState(false);
   const [err, setErr] = useState({ error: false, message: "" });
@@ -27,7 +33,7 @@ const InputText = ({ nameFor, setInputValue, setInputValidity }: InputType) => {
   return (
     <div className="flex flex-col">
       <label htmlFor={nameFor} className="text-white">
-        Your name
+        {label}
       </label>{" "}
       <input
         type="text"

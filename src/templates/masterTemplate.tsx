@@ -21,6 +21,7 @@ export default (data: any) => {
     componentsArr.push(pageData.secondaryHeader);
     componentsArr.push(pageData.titleAndText);
     componentsArr.push(pageData.projectsGrid);
+    componentsArr.push(pageData.freeConsultancyForm);
     componentsArr.push(pageData.skills);
     componentsArr.push(pageData.productCardsSlider);
     componentsArr.push(pageData.iconsRow);
@@ -193,6 +194,11 @@ export const pageQuery = graphql`
             title
           }
         }
+      }
+      freeConsultancyForm {
+        __typename
+        id
+        title
       }
     }
   }

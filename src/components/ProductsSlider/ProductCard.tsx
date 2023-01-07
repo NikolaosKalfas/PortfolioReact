@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 
 const ProductCard = (data: any) => {
   const card = data.data;
-  console.log(card);
+
   return (
     <div className="border-2 border-secondary-color p-10 rounded-lg bg-primary-color h-full flex flex-col justify-between cursor-grab lg:cursor-auto">
       <div>
