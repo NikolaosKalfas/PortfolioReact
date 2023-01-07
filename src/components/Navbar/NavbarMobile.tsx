@@ -45,6 +45,16 @@ const NavbarMobile = () => {
       </div>
       {isOpen && (
         <div className="nav-container-mob h-screen flex flex-col items-center">
+          {navbarData.products.map((product: NavigationLinkType) => (
+            <Link
+              to={product.link}
+              key={product.label}
+              className="text-white underline-offset-2 hover:underline hover:duration-300 text-4xl mt-5"
+              onClick={closeNav}
+            >
+              {product.label}
+            </Link>
+          ))}
           {navbarData &&
             navbarData.navbarLink.map((link: NavigationLinkType) => (
               <Link

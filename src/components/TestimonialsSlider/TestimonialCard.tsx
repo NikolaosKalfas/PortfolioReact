@@ -3,7 +3,6 @@ import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 const TestimonialCard = (data: any) => {
   const card = data.data;
-  console.log(card);
   return (
     <div className="text-center">
       {card.title && (

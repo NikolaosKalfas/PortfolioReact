@@ -66,6 +66,10 @@
     padding: 0 10%;
     height: 70px;
   }
+
+  .nav-container svg {
+    display: inline;
+  }
   .nav-container-mob {
     padding: 0 10%;
     height: 50px;
