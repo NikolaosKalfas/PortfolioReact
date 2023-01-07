@@ -27,13 +27,12 @@ const ConsultancyForm = (data: any) => {
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
 
-    // emailjs.sendForm(
-    //   "portfolio-form",
-    //   "consultancy_form",
-    //   form.current,
-    //   "gpnpIfmkzPUYPM3rZ"
-    // );
-    console.log("form submitted");
+    emailjs.sendForm(
+      "portfolio-form",
+      "consultancy_form",
+      form.current,
+      "gpnpIfmkzPUYPM3rZ"
+    );
 
     setFormSubmited(true);
   };
