@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-07T14:25:30.840Z ###
+### Type definitions saved at 2023-01-07T15:25:39.432Z ###
 
 enum RemoteFileFit {
   COVER
@@ -613,18 +613,18 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   title: String
   slug: String
   seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
-  titleAndText: ContentfulTitleAndText @link(by: "id", from: "titleAndText___NODE")
+  freeConsultancyForm: ContentfulConsultancyForm @link(by: "id", from: "freeConsultancyForm___NODE")
+  productCardsSlider: ContentfulProductsSlider @link(by: "id", from: "productCardsSlider___NODE")
   contactForm: ContentfulContactForm @link(by: "id", from: "contactForm___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
   skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
+  titleAndText: ContentfulTitleAndText @link(by: "id", from: "titleAndText___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
-  freeConsultancyForm: ContentfulConsultancyForm @link(by: "id", from: "freeConsultancyForm___NODE")
   testimonialsCarousel: ContentfulTestimonialsSlider @link(by: "id", from: "testimonialsCarousel___NODE")
-  productCardsSlider: ContentfulProductsSlider @link(by: "id", from: "productCardsSlider___NODE")
   iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
 }
 
@@ -681,6 +681,113 @@ type ContentfulSeoComponentSysContentType @derivedTypes {
 }
 
 type ContentfulSeoComponentSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulConsultancyForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulConsultancyFormSys
+}
+
+type ContentfulConsultancyFormSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulConsultancyFormSysContentType
+}
+
+type ContentfulConsultancyFormSysContentType @derivedTypes {
+  sys: ContentfulConsultancyFormSysContentTypeSys
+}
+
+type ContentfulConsultancyFormSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulContactForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  name: Boolean
+  email: Boolean
+  phone: Boolean
+  message: Boolean
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulContactFormSys
+}
+
+type ContentfulContactFormSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulContactFormSysContentType
+}
+
+type ContentfulContactFormSysContentType @derivedTypes {
+  sys: ContentfulContactFormSysContentTypeSys
+}
+
+type ContentfulContactFormSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulPageSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulPageSysContentType
+}
+
+type ContentfulPageSysContentType @derivedTypes {
+  sys: ContentfulPageSysContentTypeSys
+}
+
+type ContentfulPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulImageLeftWithText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  text: ContentfulImageLeftWithTextText
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulImageLeftWithTextSys
+}
+
+type ContentfulImageLeftWithTextText {
+  raw: String
+}
+
+type ContentfulImageLeftWithTextSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulImageLeftWithTextSysContentType
+}
+
+type ContentfulImageLeftWithTextSysContentType @derivedTypes {
+  sys: ContentfulImageLeftWithTextSysContentTypeSys
+}
+
+type ContentfulImageLeftWithTextSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -776,86 +883,6 @@ type ContentfulTitleAndTextSysContentTypeSys {
   id: String
 }
 
-type ContentfulContactForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  name: Boolean
-  email: Boolean
-  phone: Boolean
-  message: Boolean
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulContactFormSys
-}
-
-type ContentfulContactFormSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulContactFormSysContentType
-}
-
-type ContentfulContactFormSysContentType @derivedTypes {
-  sys: ContentfulContactFormSysContentTypeSys
-}
-
-type ContentfulContactFormSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulPageSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulPageSysContentType
-}
-
-type ContentfulPageSysContentType @derivedTypes {
-  sys: ContentfulPageSysContentTypeSys
-}
-
-type ContentfulPageSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulImageLeftWithText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  text: ContentfulImageLeftWithTextText
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulImageLeftWithTextSys
-}
-
-type ContentfulImageLeftWithTextText {
-  raw: String
-}
-
-type ContentfulImageLeftWithTextSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulImageLeftWithTextSysContentType
-}
-
-type ContentfulImageLeftWithTextSysContentType @derivedTypes {
-  sys: ContentfulImageLeftWithTextSysContentTypeSys
-}
-
-type ContentfulImageLeftWithTextSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
 type ContentfulProjects implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
@@ -908,33 +935,6 @@ type ContentfulProjectsSysContentType @derivedTypes {
 }
 
 type ContentfulProjectsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulConsultancyForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulConsultancyFormSys
-}
-
-type ContentfulConsultancyFormSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulConsultancyFormSysContentType
-}
-
-type ContentfulConsultancyFormSysContentType @derivedTypes {
-  sys: ContentfulConsultancyFormSysContentTypeSys
-}
-
-type ContentfulConsultancyFormSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -1140,6 +1140,7 @@ type ContentfulNavbar implements ContentfulReference & ContentfulEntry & Node @d
   node_locale: String!
   title: String
   navbarLink: [ContentfulNavigationLink] @link(by: "id", from: "navbarLink___NODE")
+  products: [ContentfulNavigationLink] @link(by: "id", from: "products___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
