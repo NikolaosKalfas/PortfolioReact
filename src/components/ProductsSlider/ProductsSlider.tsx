@@ -19,6 +19,7 @@ const ProductsSlider = (data: any) => {
         modules={[Scrollbar]}
         className="mySwiper"
         scrollbar={{ draggable: true }}
+        speed={500}
         breakpoints={{
           // when window width is >= 768px
           768: {

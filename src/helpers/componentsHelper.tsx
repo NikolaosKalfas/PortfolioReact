@@ -8,6 +8,7 @@ import ContactForm from "../components/ContactForm/ContactForm";
 import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 import ProductsSlider from "../components/ProductsSlider/ProductsSlider";
 import ConsultancyForm from "../components/ConsultancyForm/ConsultancyForm";
+import TestimonialsSlider from "../components/TestimonialsSlider/TestimonialsSlider";
 
 const componentMap: any = {
   ContentfulHomepageHeader: (v: any) => <HomepageHeader data={v} key={v.id} />,
@@ -24,6 +25,9 @@ const componentMap: any = {
   ContentfulProductsSlider: (v: any) => <ProductsSlider data={v} key={v.id} />,
   ContentfulConsultancyForm: (v: any) => (
     <ConsultancyForm data={v} key={v.id} />
+  ),
+  ContentfulTestimonialsSlider: (v: any) => (
+    <TestimonialsSlider data={v} key={v.id} />
   ),
 };
 

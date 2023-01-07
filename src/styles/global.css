@@ -122,6 +122,18 @@
     @apply h-auto;
   }
 
+  .swiper .swiper-button-prev,
+  .swiper .swiper-button-next {
+    color: white !important;
+  }
+  .swiper .swiper-pagination-bullet-active {
+    background-color: white;
+  }
+
+  .testimonial-copy p {
+    @apply text-white;
+  }
+
   @media screen and (min-width: 768px) {
     h2 {
       @apply text-3xl;

@@ -24,6 +24,7 @@ export default (data: any) => {
     componentsArr.push(pageData.freeConsultancyForm);
     componentsArr.push(pageData.skills);
     componentsArr.push(pageData.productCardsSlider);
+    componentsArr.push(pageData.testimonialsCarousel);
     componentsArr.push(pageData.iconsRow);
     componentsArr.push(pageData.contactForm);
   }
@@ -199,6 +200,19 @@ export const pageQuery = graphql`
         __typename
         id
         title
+      }
+      testimonialsCarousel {
+        __typename
+        id
+        title
+        testimonialCard {
+          title
+          message {
+            raw
+          }
+          name
+          business
+        }
       }
     }
   }
