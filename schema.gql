@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-06T20:32:53.610Z ###
+### Type definitions saved at 2023-01-07T13:18:01.299Z ###
 
 enum RemoteFileFit {
   COVER
@@ -622,6 +622,7 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
+  freeConsultancyForm: ContentfulConsultancyForm @link(by: "id", from: "freeConsultancyForm___NODE")
   productCardsSlider: ContentfulProductsSlider @link(by: "id", from: "productCardsSlider___NODE")
   iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
 }
@@ -906,6 +907,33 @@ type ContentfulProjectsSysContentType @derivedTypes {
 }
 
 type ContentfulProjectsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulConsultancyForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulConsultancyFormSys
+}
+
+type ContentfulConsultancyFormSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulConsultancyFormSysContentType
+}
+
+type ContentfulConsultancyFormSysContentType @derivedTypes {
+  sys: ContentfulConsultancyFormSysContentTypeSys
+}
+
+type ContentfulConsultancyFormSysContentTypeSys {
   type: String
   linkType: String
   id: String

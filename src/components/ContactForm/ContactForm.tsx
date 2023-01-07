@@ -80,6 +80,7 @@ const ContactForm = ({ data }: any) => {
             <form className="max-w-xs m-auto" ref={form} onSubmit={sendEmail}>
               {data.name && (
                 <InputText
+                  label="Your name"
                   nameFor="user_name"
                   setInputValue={setName}
                   setInputValidity={setIsNameValid}
