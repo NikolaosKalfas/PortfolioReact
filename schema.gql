@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-07T15:25:39.432Z ###
+### Type definitions saved at 2023-01-12T18:11:16.810Z ###
 
 enum RemoteFileFit {
   COVER
@@ -622,6 +622,7 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   sys: ContentfulPageSys
   skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
   titleAndText: ContentfulTitleAndText @link(by: "id", from: "titleAndText___NODE")
+  plainTextContainer: ContentfulPlainText @link(by: "id", from: "plainTextContainer___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
   testimonialsCarousel: ContentfulTestimonialsSlider @link(by: "id", from: "testimonialsCarousel___NODE")
@@ -878,6 +879,38 @@ type ContentfulTitleAndTextSysContentType @derivedTypes {
 }
 
 type ContentfulTitleAndTextSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulPlainText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  content: ContentfulPlainTextContent
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPlainTextSys
+}
+
+type ContentfulPlainTextContent {
+  raw: String
+}
+
+type ContentfulPlainTextSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulPlainTextSysContentType
+}
+
+type ContentfulPlainTextSysContentType @derivedTypes {
+  sys: ContentfulPlainTextSysContentTypeSys
+}
+
+type ContentfulPlainTextSysContentTypeSys {
   type: String
   linkType: String
   id: String

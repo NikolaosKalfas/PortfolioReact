@@ -48,16 +48,16 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
             {breadcrumbs.map((item: BreadcrumbType, i) => {
               if (i < breadcrumbs.length - 1) {
                 return (
-                  <>
+                  <span key={item.name}>
                     <Link
-                      to={item.link}
                       key={item.name}
+                      to={item.link}
                       className="hover:underline font-bold"
                     >
                       {item.name}
                     </Link>
                     <span className="mx-1">|</span>
-                  </>
+                  </span>
                 );
               } else {
                 return (
