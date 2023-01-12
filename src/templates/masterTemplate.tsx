@@ -21,6 +21,7 @@ export default (data: any) => {
     componentsArr.push(pageData.secondaryHeader);
     componentsArr.push(pageData.titleAndText);
     componentsArr.push(pageData.projectsGrid);
+    componentsArr.push(pageData.plainTextContainer);
     componentsArr.push(pageData.freeConsultancyForm);
     componentsArr.push(pageData.skills);
     componentsArr.push(pageData.productCardsSlider);
@@ -212,6 +213,13 @@ export const pageQuery = graphql`
           }
           name
           business
+        }
+      }
+      plainTextContainer {
+        __typename
+        title
+        content {
+          raw
         }
       }
     }

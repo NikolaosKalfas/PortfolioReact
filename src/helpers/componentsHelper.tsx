@@ -9,6 +9,7 @@ import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 import ProductsSlider from "../components/ProductsSlider/ProductsSlider";
 import ConsultancyForm from "../components/ConsultancyForm/ConsultancyForm";
 import TestimonialsSlider from "../components/TestimonialsSlider/TestimonialsSlider";
+import PlainTextAndTitle from "../components/PlainTextAndTitle/PlainTextAndTitle";
 
 const componentMap: any = {
   ContentfulHomepageHeader: (v: any) => <HomepageHeader data={v} key={v.id} />,
@@ -29,6 +30,7 @@ const componentMap: any = {
   ContentfulTestimonialsSlider: (v: any) => (
     <TestimonialsSlider data={v} key={v.id} />
   ),
+  ContentfulPlainText: (v: any) => <PlainTextAndTitle data={v} key={v.id} />,
 };
 
 export const componentBuilder = (strapiComponents: any[]) => {
