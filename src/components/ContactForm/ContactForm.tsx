@@ -8,6 +8,7 @@ import InputSubmit from "../InputSubmit/InputSubmit";
 import InputText from "../InputText/InputText";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import { StaticImage } from "gatsby-plugin-image";
+import InputCheckbox from "../InputCheckbox/InputCheckbox";
 
 const ContactForm = ({ data }: any) => {
   const form = useRef<any>();
@@ -20,6 +21,8 @@ const ContactForm = ({ data }: any) => {
   const [isPhoneValid, setIsPhoneValid] = useState(false);
   const [message, setMessage] = useState("");
   const [isMessageValid, setIsMessageValid] = useState(false);
+  const [tickValue, setTickValue] = useState("");
+  const [isTickValid, setIsTickValid] = useState(false);
   const [submitDisabled, setSubmitDisabled] = useState(true);
   const [formSubmited, setFormSubmited] = useState(false);
 
@@ -39,12 +42,18 @@ const ContactForm = ({ data }: any) => {
   }, []);
 
   useEffect(() => {
-    if (isNameValid && isEmailValid && isPhoneValid && isMessageValid) {
+    if (
+      isNameValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isMessageValid &&
+      isTickValid
+    ) {
       setSubmitDisabled(false);
     } else {
       setSubmitDisabled(true);
     }
-  }, [isNameValid, isEmailValid, isPhoneValid, isMessageValid]);
+  }, [isNameValid, isEmailValid, isPhoneValid, isMessageValid, isTickValid]);
 
   const sendEmail = (e: FormEvent) => {
     e.preventDefault();
@@ -107,6 +116,11 @@ const ContactForm = ({ data }: any) => {
                   setInputValidity={setIsMessageValid}
                 />
               )}
+              <InputCheckbox
+                setInputValue={setTickValue}
+                nameFor="user_tick"
+                setInputValidity={setIsTickValid}
+              />
               <InputSubmit disabledBtn={submitDisabled} />
             </form>
           )}
