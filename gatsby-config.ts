@@ -53,17 +53,30 @@ const config: GatsbyConfig = {
         },
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-gtag`,
+    //   options: {
+    //     // You can add multiple tracking ids and a pageview event will be fired for all of them.
+    //     trackingIds: [
+    //       process.env.GATSBY_GA_ID, // Google Analytics / GA
+    //     ],
+    //     pluginConfig: {
+    //       // Puts tracking script in the head instead of the body
+    //       head: true,
+    //     },
+    //   },
+    // },
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
-        // You can add multiple tracking ids and a pageview event will be fired for all of them.
-        trackingIds: [
-          process.env.GATSBY_GA_ID, // Google Analytics / GA
-        ],
-        pluginConfig: {
-          // Puts tracking script in the head instead of the body
-          head: true,
+        googleAnalytics: {
+          trackingId: process.env.GATSBY_GA_ID, // leave empty if you want to disable the tracker
+          cookieName: "gatsby-gdpr-google-analytics", // default
+          anonymize: true, // default
+          allowAdFeatures: false, // default
         },
+        // defines the environments where the tracking should be available  - default is ["production"]
+        environments: ["production", "development"],
       },
     },
     "gatsby-plugin-image",
