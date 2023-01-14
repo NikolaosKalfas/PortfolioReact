@@ -2,7 +2,23 @@ import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import Button from "../Button/Button";
 
-const ProductCard = (data: any) => {
+export type ProductCardDataType = {
+  data: {
+    title: string;
+    cardImage: any;
+    included: any;
+    mainButton: CardButtonDataType;
+    secondaryButton: CardButtonDataType;
+  };
+};
+
+type CardButtonDataType = {
+  buttonLabel: string;
+  buttonLink: string;
+  secondary: boolean;
+};
+
+const ProductCard = (data: ProductCardDataType) => {
   const card = data.data;
 
   return (

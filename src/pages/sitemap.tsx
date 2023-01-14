@@ -12,7 +12,7 @@ const Sitemap = () => {
     <>
       <NavbarContainer />
       <SecondaryHeader data={{ heading: "Sitemap" }} />
-      <div className="page-container w-full min-h-screen">
+      <section className="page-container w-full min-h-screen">
         {links &&
           links.map((page: any) => (
             <Link
@@ -22,7 +22,7 @@ const Sitemap = () => {
               {page.title}
             </Link>
           ))}
-      </div>
+      </section>
 
       <Footer />
     </>

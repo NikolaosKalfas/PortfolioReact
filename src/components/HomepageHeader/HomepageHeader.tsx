@@ -21,7 +21,7 @@ const HomepageHeader = ({ data }: HomepageDataType) => {
   return (
     <>
       {data.greeting && (
-        <div className="page-container bg-primary-color w-full flex flex-col md:flex-row md:items-center md:justify-between pt-80">
+        <header className="page-container bg-primary-color w-full flex flex-col md:flex-row md:items-center md:justify-between pt-80">
           <div>
             {data.greeting && (
               <p className="text-2xl md:text-4xl font-bold">
@@ -50,7 +50,7 @@ const HomepageHeader = ({ data }: HomepageDataType) => {
               />
             )}
           </div>
-        </div>
+        </header>
       )}
     </>
   );
