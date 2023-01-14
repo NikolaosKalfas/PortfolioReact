@@ -1,4 +1,5 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import React, { useState } from "react";
 import { NavigationLinkType } from "../Footer/Footer";
 
@@ -27,11 +28,15 @@ const Navbar = () => {
             >
               Products{" "}
               <div
-                className={`text-white inline-block  ${
-                  dropdownOpen ? "-rotate-90" : "rotate-90"
+                className={`text-white inline-block ${
+                  dropdownOpen ? "rotate-180" : ""
                 }`}
               >
-                &gt;
+                <StaticImage
+                  src="../../images/dropdown_icon.png"
+                  alt="dropdown icon"
+                  className="max-w-15 mt-1"
+                />
               </div>
               {dropdownOpen ? (
                 <div
