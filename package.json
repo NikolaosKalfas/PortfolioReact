@@ -19,6 +19,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "gatsby": "^4.24.4",
+    "gatsby-plugin-google-gtag": "^5.4.0",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-next-seo": "^1.10.0",
     "gatsby-plugin-schema-snapshot": "^4.3.0",
