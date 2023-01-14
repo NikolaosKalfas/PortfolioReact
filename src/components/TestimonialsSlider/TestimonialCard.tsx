@@ -1,7 +1,11 @@
 import React from "react";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 
-const TestimonialCard = (data: any) => {
+export type TestimonialCardDataType = {
+  data: { title: string; message: any; name: string; business: string };
+};
+
+const TestimonialCard = (data: TestimonialCardDataType) => {
   const card = data.data;
   return (
     <div className="text-center">

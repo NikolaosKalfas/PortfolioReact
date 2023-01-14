@@ -19,7 +19,7 @@ const ProjectsGrid = ({ data }: ProjectsGridDataType) => {
   return (
     <>
       {data.title && (
-        <div className="page-container bg-secondary-color">
+        <section className="page-container bg-secondary-color">
           {data.title && <SectionTitle title={data.title} secondary />}
           {data.projects && (
             <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-5">
@@ -43,7 +43,7 @@ const ProjectsGrid = ({ data }: ProjectsGridDataType) => {
               ))}
             </div>
           )}
-        </div>
+        </section>
       )}
     </>
   );

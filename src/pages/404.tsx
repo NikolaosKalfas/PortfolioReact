@@ -9,7 +9,7 @@ const ErrorPage = () => {
     <>
       <NavbarContainer />
       <SecondaryHeader data={{ heading: "Page not found" }} />
-      <div className="page-container min-h-screen">
+      <section className="page-container min-h-screen">
         <p>I’m sorry, the page you have requested doesn’t exist.</p>
         <p>
           Return to{" "}
@@ -21,7 +21,7 @@ const ErrorPage = () => {
           </Link>
           .
         </p>
-      </div>
+      </section>
       <Footer />
     </>
   );

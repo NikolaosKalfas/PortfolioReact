@@ -6,9 +6,14 @@ import InputSubmit from "../InputSubmit/InputSubmit";
 import InputText from "../InputText/InputText";
 import { StaticImage } from "gatsby-plugin-image";
 
-const ConsultancyForm = (data: any) => {
-  const form = useRef<any>();
+type ConsultancyFormDataType = {
+  data: {
+    title: string;
+  };
+};
 
+const ConsultancyForm = (data: ConsultancyFormDataType) => {
+  const form = useRef<any>();
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [url, setUrl] = useState("");
@@ -38,7 +43,7 @@ const ConsultancyForm = (data: any) => {
   };
 
   return (
-    <div className="page-container bg-secondary-color">
+    <section className="page-container bg-secondary-color">
       {data.data.title && <SectionTitle title={data.data.title} secondary />}
       {formSubmited ? (
         <div className="flex flex-row items-center gap-5">
@@ -78,7 +83,7 @@ const ConsultancyForm = (data: any) => {
           </div>
         </form>
       )}
-    </div>
+    </section>
   );
 };
 

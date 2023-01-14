@@ -18,7 +18,7 @@ const ImageLeftWithText = ({ data }: ImageLeftWithTextDataType) => {
   return (
     <>
       {data.title && (
-        <div className="page-container bg-primary-color">
+        <section className="page-container bg-primary-color">
           {data.title && <SectionTitle title={data.title} />}
           <div className="md:flex md:gap-5">
             <div className="md:w-1/2">
@@ -33,7 +33,7 @@ const ImageLeftWithText = ({ data }: ImageLeftWithTextDataType) => {
               )}
             </div>
           </div>
-        </div>
+        </section>
       )}
     </>
   );

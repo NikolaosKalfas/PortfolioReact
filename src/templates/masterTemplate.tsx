@@ -34,9 +34,9 @@ export default (data: any) => {
   createComponentsArr();
   const blocks = componentBuilder(componentsArr);
 
-  console.log(componentsArr);
-  console.log(blocks);
-  console.log(pageData);
+  // console.log(componentsArr);
+  // console.log(blocks);
+  // console.log(pageData);
 
   return (
     <div>

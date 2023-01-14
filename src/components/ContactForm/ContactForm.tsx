@@ -10,7 +10,17 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import { StaticImage } from "gatsby-plugin-image";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 
-const ContactForm = ({ data }: any) => {
+type ContactFormDataType = {
+  data: {
+    title: string;
+    name?: boolean;
+    email?: boolean;
+    phone?: boolean;
+    message?: boolean;
+  };
+};
+
+const ContactForm = ({ data }: ContactFormDataType) => {
   const form = useRef<any>();
 
   const [name, setName] = useState("");
@@ -71,7 +81,7 @@ const ContactForm = ({ data }: any) => {
   return (
     <>
       {data.title && (
-        <div className="page-container bg-secondary-color">
+        <section className="page-container bg-secondary-color">
           <SectionTitle title={data.title} secondary />
           {formSubmited ? (
             <div className="m-auto max-w-sm text-center">
@@ -124,7 +134,7 @@ const ContactForm = ({ data }: any) => {
               <InputSubmit disabledBtn={submitDisabled} />
             </form>
           )}
-        </div>
+        </section>
       )}
     </>
   );

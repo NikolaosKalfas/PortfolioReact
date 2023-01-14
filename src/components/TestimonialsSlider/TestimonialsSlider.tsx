@@ -3,12 +3,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import TestimonialCard from "./TestimonialCard";
+import { TestimonialCardDataType } from "./TestimonialCard";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-const TestimonialsSlider = (data: any) => {
+type TestimonialSliderDataType = {
+  data: {
+    title: string;
+    testimonialCard: TestimonialCardDataType[];
+  };
+};
+
+const TestimonialsSlider = (data: TestimonialSliderDataType) => {
   const cards = data.data.testimonialCard;
   return (
     <section className="page-container bg-secondary-color">

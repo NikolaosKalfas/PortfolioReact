@@ -18,7 +18,7 @@ const IconsRow = ({ data }: IconsRowDataType) => {
   return (
     <>
       {data.title && (
-        <div className="page-container">
+        <section className="page-container">
           {data.title && <SectionTitle title={data.title} />}
           {data.icons && (
             <div className="flex flex-wrap justify-between gap-10">
@@ -29,7 +29,7 @@ const IconsRow = ({ data }: IconsRowDataType) => {
               ))}
             </div>
           )}
-        </div>
+        </section>
       )}
     </>
   );
