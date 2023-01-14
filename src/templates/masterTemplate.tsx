@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { componentBuilder } from "../helpers/componentsHelper";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Footer from "../components/Footer/Footer";
 import NavbarContainer from "../components/Navbar/NavbarContainer";
+import CookieConsent from "react-cookie-consent";
 
 export default (data: any) => {
   const [url, setUrl] = useState("");
@@ -68,6 +69,32 @@ export default (data: any) => {
       <NavbarContainer />
       {blocks?.map((block) => block)}
       <Footer />
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        declineButtonText="Decline"
+        enableDeclineButton={true}
+        cookieName="gatsby-gdpr-google-analytics"
+        contentStyle={{ color: "#eee", margin: "15px 0" }}
+        buttonStyle={{
+          color: "#383838",
+          background: "#eee",
+          borderRadius: "3px",
+        }}
+        declineButtonStyle={{
+          color: "#383838",
+          background: "#eee",
+          borderRadius: "3px",
+        }}
+        containerClasses="consent-container"
+        onAccept={() => window.location.reload()}
+      >
+        This site uses cookies.Read more about my{" "}
+        <Link to="/privacy-policy" className="underline">
+          Privacy Policy
+        </Link>
+        .
+      </CookieConsent>
     </div>
   );
 };
