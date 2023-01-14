@@ -43,7 +43,7 @@ const Footer = () => {
           </div>
         </div>
         <hr className="border-t border-t-primary-color bg-secondary-color my-5" />
-        <div className="text-white">
+        <div className="text-white grid grid-rows-3 grid-flow-col">
           {footerData.footerLink &&
             footerData.footerLink.map((link: NavigationLinkType) => (
               <Link

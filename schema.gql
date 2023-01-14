@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-14T14:11:35.584Z ###
+### Type definitions saved at 2023-01-14T14:20:06.774Z ###
 
 enum RemoteFileFit {
   COVER
@@ -1105,11 +1105,11 @@ type ContentfulNavigationLink implements ContentfulReference & ContentfulEntry &
   label: String
   link: String
   footer: [ContentfulFooter] @link(by: "id", from: "footer___NODE")
-  navbar: [ContentfulNavbar] @link(by: "id", from: "navbar___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulNavigationLinkSys
+  navbar: [ContentfulNavbar] @link(by: "id", from: "navbar___NODE")
 }
 
 type ContentfulFooter implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -1168,6 +1168,22 @@ type ContentfulFooterSysContentTypeSys {
   id: String
 }
 
+type ContentfulNavigationLinkSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulNavigationLinkSysContentType
+}
+
+type ContentfulNavigationLinkSysContentType @derivedTypes {
+  sys: ContentfulNavigationLinkSysContentTypeSys
+}
+
+type ContentfulNavigationLinkSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
 type ContentfulNavbar implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
@@ -1191,22 +1207,6 @@ type ContentfulNavbarSysContentType @derivedTypes {
 }
 
 type ContentfulNavbarSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulNavigationLinkSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulNavigationLinkSysContentType
-}
-
-type ContentfulNavigationLinkSysContentType @derivedTypes {
-  sys: ContentfulNavigationLinkSysContentTypeSys
-}
-
-type ContentfulNavigationLinkSysContentTypeSys {
   type: String
   linkType: String
   id: String
