@@ -17,6 +17,7 @@ const config: GatsbyConfig = {
       options: {
         accessToken: process.env.CONTENTFUL_ACCESSTOKEN,
         spaceId: process.env.CONTENTFUL_SPACEID,
+        host: process.env.CONTENTFUL_HOST,
       },
     },
     {
