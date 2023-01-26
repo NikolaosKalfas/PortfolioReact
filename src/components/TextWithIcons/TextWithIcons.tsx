@@ -19,7 +19,7 @@ const TextWithIcons = ({ data }: TextWithIconsDataType) => {
         <section className="page-container">
           {data.title && <SectionTitle title={data.title} />}
           {data.text && (
-            <div className="mb-5 text-xl lg:text-2xl">
+            <div className="mb-5 text-xl lg:text-2xl text-text-color-primary">
               {renderRichText(data.text)}
             </div>
           )}
@@ -31,7 +31,7 @@ const TextWithIcons = ({ data }: TextWithIconsDataType) => {
                     <Icon icon={icon} key={icon.title} />
                   </div>
                   {icon.title && (
-                    <p className="text-xl font-bold text-center">
+                    <p className="text-xl font-bold text-center text-text-color-primary">
                       {icon.title}
                     </p>
                   )}

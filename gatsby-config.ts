@@ -8,7 +8,7 @@ const SITE_URL = "https://nikolaoskalfas.com";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Portfolio React`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: SITE_URL,
   },
   graphqlTypegen: true,
   plugins: [

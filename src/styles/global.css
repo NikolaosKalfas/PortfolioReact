@@ -4,7 +4,6 @@
 
 @layer base {
   * {
-    @apply text-text-color-primary;
     margin: 0;
     padding: 0;
     font-family: "muli", sans-serif;
@@ -116,7 +115,7 @@
   }
 
   .btn-primary {
-    @apply cursor-pointer hover:text-text-color-primary font-semibold text-center hover:bg-white bg-secondary-color text-white border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
+    @apply cursor-pointer hover:text-secondary-color font-semibold text-center hover:bg-white bg-secondary-color text-white border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
   }
   .btn-secondary {
     @apply cursor-pointer text-text-color-primary font-semibold text-center bg-white hover:bg-secondary-color hover:text-white border-secondary-color hover:border-white  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;

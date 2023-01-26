@@ -12,9 +12,10 @@ module.exports = {
         "h1-desk": ["70px", "80px"],
       },
       colors: {
-        "primary-color": "#eee",
-        "secondary-color": "#383838",
-        "text-color-primary": "#383838",
+        "primary-color": "#1b365d",
+        "secondary-color": "#dc582a",
+        "text-color-primary": "#1b365d",
+        "text-color-secondary": "#ffffff",
         "link-primary": "#1F51FF",
         "navigation-color": "#28282B",
       },

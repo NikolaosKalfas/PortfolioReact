@@ -52,23 +52,23 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
                     <Link
                       key={item.name}
                       to={item.link}
-                      className="hover:underline font-bold"
+                      className="hover:underline font-bold text-text-color-secondary"
                     >
                       {item.name}
                     </Link>
-                    <span className="mx-1">|</span>
+                    <span className="mx-1 text-text-color-secondary">|</span>
                   </span>
                 );
               } else {
                 return (
-                  <span className="" key={item.name}>
+                  <span className="text-text-color-secondary" key={item.name}>
                     {item.name}
                   </span>
                 );
               }
             })}
           </div>
-          <h1>{data.heading}</h1>
+          <h1 className="text-text-color-secondary">{data.heading}</h1>
         </div>
       )}
     </>
