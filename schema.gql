@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-26T19:30:54.815Z ###
+### Type definitions saved at 2023-01-27T20:16:31.749Z ###
 
 enum RemoteFileFit {
   COVER
@@ -610,6 +610,7 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   contentful_id: String!
   node_locale: String!
   secondaryHeader: ContentfulSecondaryHeader @link(by: "id", from: "secondaryHeader___NODE")
+  projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid__NODE")
   title: String
   slug: String
   seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
@@ -624,7 +625,6 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   titleAndText: ContentfulTitleAndText @link(by: "id", from: "titleAndText___NODE")
   plainTextContainer: ContentfulPlainText @link(by: "id", from: "plainTextContainer___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
-  projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
   testimonialsCarousel: ContentfulTestimonialsSlider @link(by: "id", from: "testimonialsCarousel___NODE")
   iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
 }
@@ -651,6 +651,63 @@ type ContentfulSecondaryHeaderSysContentType @derivedTypes {
 }
 
 type ContentfulSecondaryHeaderSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulProjects implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  heading: String
+  title: String
+  projects: [ContentfulProjectItem] @link(by: "id", from: "projects___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulProjectsSys
+}
+
+type ContentfulProjectItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  link: String
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  projects: [ContentfulProjects] @link(by: "id", from: "projects___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulProjectItemSys
+}
+
+type ContentfulProjectItemSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulProjectItemSysContentType
+}
+
+type ContentfulProjectItemSysContentType @derivedTypes {
+  sys: ContentfulProjectItemSysContentTypeSys
+}
+
+type ContentfulProjectItemSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulProjectsSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulProjectsSysContentType
+}
+
+type ContentfulProjectsSysContentType @derivedTypes {
+  sys: ContentfulProjectsSysContentTypeSys
+}
+
+type ContentfulProjectsSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -911,63 +968,6 @@ type ContentfulPlainTextSysContentType @derivedTypes {
 }
 
 type ContentfulPlainTextSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulProjects implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  projects: [ContentfulProjectItem] @link(by: "id", from: "projects___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulProjectsSys
-}
-
-type ContentfulProjectItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  link: String
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  projects: [ContentfulProjects] @link(by: "id", from: "projects___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulProjectItemSys
-}
-
-type ContentfulProjectItemSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulProjectItemSysContentType
-}
-
-type ContentfulProjectItemSysContentType @derivedTypes {
-  sys: ContentfulProjectItemSysContentTypeSys
-}
-
-type ContentfulProjectItemSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulProjectsSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulProjectsSysContentType
-}
-
-type ContentfulProjectsSysContentType @derivedTypes {
-  sys: ContentfulProjectsSysContentTypeSys
-}
-
-type ContentfulProjectsSysContentTypeSys {
   type: String
   linkType: String
   id: String
