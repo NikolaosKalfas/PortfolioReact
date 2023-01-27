@@ -44,7 +44,7 @@
   input[type="email"]:hover,
   input[type="tel"]:hover,
   textarea:hover {
-    @apply border-2 border-blue-300;
+    @apply border-2 border-secondary-color;
   }
 
   input[type="text"]:focus,

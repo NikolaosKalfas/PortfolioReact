@@ -43,7 +43,7 @@ const ConsultancyForm = (data: ConsultancyFormDataType) => {
   };
 
   return (
-    <section className="page-container bg-secondary-color">
+    <section className="page-container bg-primary-color">
       {data.data.title && <SectionTitle title={data.data.title} secondary />}
       {formSubmited ? (
         <div className="flex flex-row items-center gap-5">

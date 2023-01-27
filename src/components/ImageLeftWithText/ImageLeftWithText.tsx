@@ -18,7 +18,7 @@ const ImageLeftWithText = ({ data }: ImageLeftWithTextDataType) => {
   return (
     <>
       {data.title && (
-        <section className="page-container bg-primary-color">
+        <section className="page-container bg-tertiary-color">
           {data.title && <SectionTitle title={data.title} />}
           <div className="md:flex md:gap-5">
             <div className="md:w-1/2">
@@ -29,7 +29,9 @@ const ImageLeftWithText = ({ data }: ImageLeftWithTextDataType) => {
             </div>
             <div className="md:w-1/2 lg:1/3">
               {data.text && (
-                <div className="my-5 text-xl">{renderRichText(data.text)}</div>
+                <div className="my-5 text-xl text-text-color-primary">
+                  {renderRichText(data.text)}
+                </div>
               )}
             </div>
           </div>

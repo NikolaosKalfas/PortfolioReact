@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-27T20:16:31.749Z ###
+### Type definitions saved at 2023-01-27T20:33:24.462Z ###
 
 enum RemoteFileFit {
   COVER
@@ -611,6 +611,7 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   node_locale: String!
   secondaryHeader: ContentfulSecondaryHeader @link(by: "id", from: "secondaryHeader___NODE")
   projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid__NODE")
+  iconsRow: ContentfulIconsRow @link(by: "id", from: "projectsGrid__NODE")
   title: String
   slug: String
   seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
@@ -626,7 +627,6 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   plainTextContainer: ContentfulPlainText @link(by: "id", from: "plainTextContainer___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   testimonialsCarousel: ContentfulTestimonialsSlider @link(by: "id", from: "testimonialsCarousel___NODE")
-  iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
 }
 
 type ContentfulSecondaryHeader implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -659,7 +659,6 @@ type ContentfulSecondaryHeaderSysContentTypeSys {
 type ContentfulProjects implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
-  heading: String
   title: String
   projects: [ContentfulProjectItem] @link(by: "id", from: "projects___NODE")
   spaceId: String
@@ -708,6 +707,95 @@ type ContentfulProjectsSysContentType @derivedTypes {
 }
 
 type ContentfulProjectsSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulIconsRow implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  icons: [ContentfulIconItem] @link(by: "id", from: "icons___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulIconsRowSys
+}
+
+type ContentfulIconItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  icon: ContentfulAsset @link(by: "id", from: "icon___NODE")
+  icons_row: [ContentfulIconsRow] @link(by: "id", from: "icons row___NODE") @proxy(from: "icons row___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulIconItemSys
+  title_and_text: [ContentfulTitleAndText] @link(by: "id", from: "title and text___NODE") @proxy(from: "title and text___NODE")
+}
+
+type ContentfulIconItemSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulIconItemSysContentType
+}
+
+type ContentfulIconItemSysContentType @derivedTypes {
+  sys: ContentfulIconItemSysContentTypeSys
+}
+
+type ContentfulIconItemSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulTitleAndText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  text: ContentfulTitleAndTextText
+  icons: [ContentfulIconItem] @link(by: "id", from: "icons___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulTitleAndTextSys
+}
+
+type ContentfulTitleAndTextText {
+  raw: String
+}
+
+type ContentfulTitleAndTextSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulTitleAndTextSysContentType
+}
+
+type ContentfulTitleAndTextSysContentType @derivedTypes {
+  sys: ContentfulTitleAndTextSysContentTypeSys
+}
+
+type ContentfulTitleAndTextSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulIconsRowSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulIconsRowSysContentType
+}
+
+type ContentfulIconsRowSysContentType @derivedTypes {
+  sys: ContentfulIconsRowSysContentTypeSys
+}
+
+type ContentfulIconsRowSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -846,96 +934,6 @@ type ContentfulImageLeftWithTextSysContentType @derivedTypes {
 }
 
 type ContentfulImageLeftWithTextSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulTitleAndText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  text: ContentfulTitleAndTextText
-  icons: [ContentfulIconItem] @link(by: "id", from: "icons___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulTitleAndTextSys
-}
-
-type ContentfulTitleAndTextText {
-  raw: String
-}
-
-type ContentfulIconItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  icon: ContentfulAsset @link(by: "id", from: "icon___NODE")
-  icons_row: [ContentfulIconsRow] @link(by: "id", from: "icons row___NODE") @proxy(from: "icons row___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulIconItemSys
-  title_and_text: [ContentfulTitleAndText] @link(by: "id", from: "title and text___NODE") @proxy(from: "title and text___NODE")
-}
-
-type ContentfulIconsRow implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  icons: [ContentfulIconItem] @link(by: "id", from: "icons___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulIconsRowSys
-}
-
-type ContentfulIconsRowSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulIconsRowSysContentType
-}
-
-type ContentfulIconsRowSysContentType @derivedTypes {
-  sys: ContentfulIconsRowSysContentTypeSys
-}
-
-type ContentfulIconsRowSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulIconItemSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulIconItemSysContentType
-}
-
-type ContentfulIconItemSysContentType @derivedTypes {
-  sys: ContentfulIconItemSysContentTypeSys
-}
-
-type ContentfulIconItemSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulTitleAndTextSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulTitleAndTextSysContentType
-}
-
-type ContentfulTitleAndTextSysContentType @derivedTypes {
-  sys: ContentfulTitleAndTextSysContentTypeSys
-}
-
-type ContentfulTitleAndTextSysContentTypeSys {
   type: String
   linkType: String
   id: String
