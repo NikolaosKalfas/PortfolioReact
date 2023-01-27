@@ -10,8 +10,8 @@ const InputSubmit = ({ disabledBtn }: SubmitType) => {
       <input
         className={`btn-secondary ${
           disabledBtn
-            ? `bg-gray-300 text-gray-400 hover:bg-gray-300 hover:text-gray-400 hover:border-secondary-color`
-            : `bg-white hover:bg-secondary-color hover:text-white`
+            ? `bg-gray-300 border-gray-300 text-gray-400 hover:bg-gray-300 hover:text-gray-400 hover:border-secondary-color`
+            : `bg-secondary-color hover:bg-tertiary-color text-tertiary-color hover:text-secondary-color`
         }`}
         type="submit"
         value="Submit"

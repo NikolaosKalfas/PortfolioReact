@@ -14,13 +14,17 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ContentfulPage implements Node {
       secondaryHeader: ContentfulSecondaryHeader @link(by: "id", from: "secondaryHeader___NODE")
       projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid__NODE")
+      iconsRow: ContentfulIconsRow @link(by: "id", from: "projectsGrid__NODE")
     }
     type ContentfulSecondaryHeader implements Node {
       heading: String
     }
 
     type ContentfulProjects implements Node {
-      heading: String
+      title: String
+    }
+    type ContentfulIconsRow implements Node {
+      title: String
     }
     `,
   ];

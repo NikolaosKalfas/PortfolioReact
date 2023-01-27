@@ -19,7 +19,7 @@ type ProductsSliderDataType = {
 const ProductsSlider = (data: ProductsSliderDataType) => {
   const cards = data.data.sliderProductCard;
   return (
-    <section className="page-container">
+    <section className="page-container bg-tertiary-color">
       {data.data.title && <SectionTitle title={data.data.title} />}
       <Swiper
         slidesPerView={1}

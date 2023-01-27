@@ -81,7 +81,7 @@ const ContactForm = ({ data }: ContactFormDataType) => {
   return (
     <>
       {data.title && (
-        <section className="page-container bg-secondary-color">
+        <section className="page-container bg-primary-color">
           <SectionTitle title={data.title} secondary />
           {formSubmited ? (
             <div className="m-auto max-w-sm text-center">
