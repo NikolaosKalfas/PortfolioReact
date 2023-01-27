@@ -120,6 +120,9 @@
   .btn-secondary {
     @apply cursor-pointer text-secondary-color font-semibold text-center bg-white hover:bg-secondary-color hover:text-white border-secondary-color hover:border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
   }
+  .btn-submit {
+    @apply cursor-pointer  font-semibold text-center border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
+  }
 
   .swiper {
     @apply pb-5 !important;
