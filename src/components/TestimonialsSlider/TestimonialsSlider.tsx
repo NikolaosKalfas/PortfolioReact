@@ -37,7 +37,7 @@ const TestimonialsSlider = (data: TestimonialSliderDataType) => {
       >
         {cards &&
           cards.map((card: any) => (
-            <SwiperSlide className="">
+            <SwiperSlide className="" key={card.title}>
               <TestimonialCard data={card} />
             </SwiperSlide>
           ))}
