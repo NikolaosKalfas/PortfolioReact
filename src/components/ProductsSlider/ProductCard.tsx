@@ -41,7 +41,7 @@ const ProductCard = (data: ProductCardDataType) => {
           <div className="my-4 flex justify-center">
             <div>
               {card.included.map((service: any) => (
-                <p className="text-lg text-primary-color">
+                <p className="text-lg text-primary-color" key={service.title}>
                   <span className="text-green-500 text-sm">&#10003;</span>{" "}
                   {service.title}
                 </p>

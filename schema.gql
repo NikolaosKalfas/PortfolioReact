@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-01-27T20:52:18.222Z ###
+### Type definitions saved at 2023-03-13T18:58:20.494Z ###
 
 enum RemoteFileFit {
   COVER
@@ -610,8 +610,8 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   contentful_id: String!
   node_locale: String!
   secondaryHeader: ContentfulSecondaryHeader @link(by: "id", from: "secondaryHeader___NODE")
-  projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid__NODE")
-  iconsRow: ContentfulIconsRow @link(by: "id", from: "projectsGrid__NODE")
+  projectsGrid: ContentfulProjects @link(by: "id", from: "projectsGrid___NODE")
+  iconsRow: ContentfulIconsRow @link(by: "id", from: "iconsRow___NODE")
   title: String
   slug: String
   seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
