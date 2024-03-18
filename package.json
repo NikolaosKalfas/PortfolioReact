@@ -17,31 +17,31 @@
     "cleanstart": "gatsby clean && gatsby develop"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.10.0",
-    "gatsby": "^4.24.4",
+    "@emailjs/browser": "^3.12.1",
+    "gatsby": "^4.25.8",
     "gatsby-plugin-gdpr-cookies": "^2.0.9",
-    "gatsby-plugin-image": "^2.24.0",
-    "gatsby-plugin-next-seo": "^1.10.0",
-    "gatsby-plugin-schema-snapshot": "^4.3.0",
-    "gatsby-plugin-sharp": "^4.24.0",
-    "gatsby-plugin-sitemap": "^6.2.0",
-    "gatsby-source-contentful": "^7.22.0",
-    "gatsby-transformer-sharp": "^4.24.0",
-    "react": "^18.1.0",
+    "gatsby-plugin-image": "^2.25.0",
+    "gatsby-plugin-next-seo": "^1.11.0",
+    "gatsby-plugin-schema-snapshot": "^4.13.0",
+    "gatsby-plugin-sharp": "^4.25.1",
+    "gatsby-plugin-sitemap": "^6.13.1",
+    "gatsby-source-contentful": "^7.23.1",
+    "gatsby-transformer-sharp": "^4.25.0",
+    "react": "^18.2.0",
     "react-cookie-consent": "^8.0.1",
-    "react-dom": "^18.1.0",
+    "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
     "react-typed": "^1.2.0",
-    "swiper": "^8.4.5"
+    "swiper": "^8.4.7"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "autoprefixer": "^10.4.12",
-    "gatsby-plugin-postcss": "^5.24.0",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.8.3"
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "autoprefixer": "^10.4.18",
+    "gatsby-plugin-postcss": "^5.25.0",
+    "postcss": "^8.4.36",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^4.9.5"
   }
 }
