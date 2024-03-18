@@ -26,6 +26,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ContentfulIconsRow implements Node {
       title: String
     }
+
+
     `,
   ];
 
@@ -53,6 +55,9 @@ exports.createPages = async ({ graphql, actions }) => {
       component: masterTemplate,
       context: {
         id: node.id,
+      },
+      internal: {
+        type: "page",
       },
     });
   });

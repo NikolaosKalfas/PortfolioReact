@@ -41,7 +41,7 @@ const ProductsSlider = (data: ProductsSliderDataType) => {
       >
         {cards &&
           cards.map((card: any) => (
-            <SwiperSlide className="">
+            <SwiperSlide className="" key={card.title}>
               <ProductCard data={card} />
             </SwiperSlide>
           ))}
