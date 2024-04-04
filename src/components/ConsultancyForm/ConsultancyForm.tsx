@@ -52,7 +52,7 @@ const ConsultancyForm = (data: ConsultancyFormDataType) => {
             alt="green tick"
             className="max-w-60 "
           />
-          <p className="text-white text-xl lg:text-2xl m-0">
+          <p className="text-off-white text-xl lg:text-2xl m-0">
             Thank you for getting in touch. I will get back to you as soon as
             possible!
           </p>

@@ -20,7 +20,7 @@ const Footer = () => {
   const footerData = query.contentfulFooter;
 
   return (
-    <footer className="border-t border-t-primary-color bg-white w-full">
+    <footer className="border-t border-t-primary-color bg-off-white w-full">
       <div className="page-container">
         <div className="text-navigation-color flex flex-col md:flex-row justify-between md:items-end font-semibold">
           Nikolaos Kalfas &copy; {new Date().getFullYear()}

@@ -25,7 +25,7 @@ const InputPhone = ({
   };
   return (
     <div className="flex flex-col">
-      <label htmlFor={nameFor} className="text-white">
+      <label htmlFor={nameFor} className="text-off-white">
         Your phone number
       </label>{" "}
       <input

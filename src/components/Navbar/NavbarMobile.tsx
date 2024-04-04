@@ -17,7 +17,7 @@ const NavbarMobile = () => {
     document.body.classList.remove("body-no-scroll");
   };
   return (
-    <nav className="md:hidden fixed border-b border-b-primary-color bg-white w-full top-0 z-50 ">
+    <nav className="md:hidden fixed border-b border-b-primary-color bg-off-white w-full top-0 z-50 ">
       <div className="nav-container-mob flex items-center justify-between">
         <div className="text-primary-color font-semibold">
           <Link
