@@ -27,7 +27,7 @@ const ProjectsGrid = ({ data }: ProjectsGridDataType) => {
                 <a
                   target="__blank"
                   href={project.link}
-                  className="text-white cursor-pointer grid-card relative"
+                  className="text-off-white cursor-pointer grid-card relative"
                   key={project.link}
                 >
                   <div className="">

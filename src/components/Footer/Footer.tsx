@@ -20,9 +20,9 @@ const Footer = () => {
   const footerData = query.contentfulFooter;
 
   return (
-    <footer className="border-t border-t-primary-color bg-navigation-color w-full">
+    <footer className="border-t border-t-primary-color bg-off-white w-full">
       <div className="page-container">
-        <div className="text-white flex flex-col md:flex-row justify-between md:items-end">
+        <div className="text-navigation-color flex flex-col md:flex-row justify-between md:items-end font-semibold">
           Nikolaos Kalfas &copy; {new Date().getFullYear()}
           <div className="">
             {footerData.socialLink &&
@@ -43,13 +43,13 @@ const Footer = () => {
           </div>
         </div>
         <hr className="border-t border-t-primary-color bg-secondary-color my-5" />
-        <div className="text-white grid grid-rows-3 grid-flow-col">
+        <div className="text-navigation-color grid grid-rows-3 grid-flow-col">
           {footerData.footerLink &&
             footerData.footerLink.map((link: NavigationLinkType) => (
               <Link
                 to={link.link}
                 key={link.label}
-                className="block hover:text-link-primary underline-offset-2 underline hover:duration-300 py-1"
+                className="block hover:text-link-primary underline-offset-2 underline hover:duration-300 py-1 font-semibold"
               >
                 {link.label}
               </Link>

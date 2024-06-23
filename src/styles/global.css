@@ -11,7 +11,7 @@
   }
 
   body {
-    @apply min-h-screen;
+    @apply min-h-screen bg-off-white;
   }
 
   .body-no-scroll {
@@ -103,7 +103,7 @@
   }
 
   .grid-card:hover .grid-card-overlay p {
-    @apply text-text-color-primary font-semibold absolute text-center bg-white border-primary-color border-2 hover:text-white hover:bg-secondary-color hover:duration-300;
+    @apply text-text-color-primary font-semibold absolute text-center bg-off-white border-primary-color border-2 hover:text-off-white hover:bg-secondary-color hover:duration-300;
     border-radius: 3px;
     line-height: 24px;
     left: 50%;
@@ -115,10 +115,10 @@
   }
 
   .btn-primary {
-    @apply cursor-pointer hover:text-secondary-color font-semibold text-center hover:bg-white bg-secondary-color text-text-color-secondary border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
+    @apply cursor-pointer hover:text-secondary-color font-semibold text-center hover:bg-off-white bg-secondary-color text-text-color-secondary border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
   }
   .btn-secondary {
-    @apply cursor-pointer text-secondary-color font-semibold text-center bg-white hover:bg-secondary-color hover:text-white border-secondary-color hover:border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
+    @apply cursor-pointer text-secondary-color font-semibold text-center bg-off-white hover:bg-secondary-color hover:text-off-white border-secondary-color hover:border-secondary-color  border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
   }
   .btn-submit {
     @apply cursor-pointer  font-semibold text-center border-2  hover:duration-300 rounded p-3 transition-colors w-full md:w-200 min-h-60 flex items-center justify-center;
@@ -134,14 +134,15 @@
 
   .swiper .swiper-button-prev,
   .swiper .swiper-button-next {
-    color: white !important;
+    @apply text-off-white !important;
+
   }
   .swiper .swiper-pagination-bullet-active {
-    background-color: white;
+    @apply bg-off-white
   }
 
   .testimonial-copy p {
-    @apply text-white;
+    @apply text-off-white;
   }
 
   @media screen and (min-width: 768px) {

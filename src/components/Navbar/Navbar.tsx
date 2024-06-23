@@ -10,9 +10,9 @@ const Navbar = () => {
   const navbarData = query.contentfulNavbar;
 
   return (
-    <nav className="hidden md:block fixed border-b border-b-primary-color bg-navigation-color w-full top-0 z-50 ">
+    <nav className="hidden md:block fixed border-b border-b-primary-color bg-off-white w-full top-0 z-50 ">
       <div className="nav-container flex items-center justify-between">
-        <div className="text-white">
+        <div className="text-primary-color font-semibold">
           <Link
             to="/"
             className="hover:underline underline-offset-2 hover:duration-300"
@@ -24,11 +24,11 @@ const Navbar = () => {
           {navbarData.products && (
             <div
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="text-white navbar-link underline-offset-2 hover:underline hover:duration-300 cursor-pointer inline navbar-link text-base leading-6 relative"
+              className="text-primary-color navbar-link underline-offset-2 hover:underline hover:duration-300 cursor-pointer inline navbar-link text-base leading-6 relative font-semibold"
             >
               Products{" "}
               <div
-                className={`text-white inline-block ${
+                className={`text-primary-color inline-block ${
                   dropdownOpen ? "rotate-180" : ""
                 }`}
               >
@@ -40,14 +40,14 @@ const Navbar = () => {
               </div>
               {dropdownOpen ? (
                 <div
-                  className="absolute flex flex-col bg-navigation-color top-10 p-4"
+                  className="absolute flex flex-col bg-off-white top-10 p-4"
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
                   {navbarData.products.map((product: NavigationLinkType) => (
                     <Link
                       to={product.link}
                       key={product.label}
-                      className="text-white navbar-link underline-offset-2 hover:underline hover:duration-300 pb-2"
+                      className="text-primary-color navbar-link underline-offset-2 hover:underline hover:duration-300 pb-2 "
                     >
                       {product.label}
                     </Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
               <Link
                 to={link.link}
                 key={link.label}
-                className="text-white navbar-link underline-offset-2 hover:underline hover:duration-300"
+                className="text-primary-color navbar-link underline-offset-2 hover:underline hover:duration-300 font-semibold"
               >
                 {link.label}
               </Link>

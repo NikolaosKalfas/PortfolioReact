@@ -14,11 +14,12 @@ module.exports = {
       colors: {
         "primary-color": "#1b365d",
         "secondary-color": "#dc582a",
-        "tertiary-color": "#ffffff",
+        "tertiary-color": "#f5f5f5",
         "text-color-primary": "#1b365d",
-        "text-color-secondary": "#ffffff",
+        "text-color-secondary": "#f5f5f5",
         "link-primary": "#1F51FF",
         "navigation-color": "#28282B",
+        "off-white": "#f5f5f5",
       },
       padding: {
         80: "80px",

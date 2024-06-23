@@ -25,7 +25,7 @@ const InputEmail = ({
   };
   return (
     <div className="flex flex-col">
-      <label htmlFor={nameFor} className="text-white">
+      <label htmlFor={nameFor} className="text-off-white">
         Your email
       </label>{" "}
       <input

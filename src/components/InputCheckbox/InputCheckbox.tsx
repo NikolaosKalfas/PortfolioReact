@@ -16,7 +16,7 @@ const InputCheckbox = ({ setInputValue, setInputValidity }: InputType) => {
 
   return (
     <div>
-      <label className="text-white cursor-pointer">
+      <label className="text-off-white cursor-pointer">
         <input
           type="checkbox"
           checked={checked}

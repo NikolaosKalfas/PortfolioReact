@@ -17,9 +17,9 @@ const NavbarMobile = () => {
     document.body.classList.remove("body-no-scroll");
   };
   return (
-    <nav className="md:hidden fixed border-b border-b-primary-color bg-navigation-color w-full top-0 z-50 ">
+    <nav className="md:hidden fixed border-b border-b-primary-color bg-off-white w-full top-0 z-50 ">
       <div className="nav-container-mob flex items-center justify-between">
-        <div className="text-white">
+        <div className="text-primary-color font-semibold">
           <Link
             to="/"
             className="hover:underline underline-offset-2 hover:duration-300"
@@ -31,14 +31,14 @@ const NavbarMobile = () => {
         <div className="cursor-pointer" onClick={isOpen ? closeNav : openNav}>
           {isOpen ? (
             <>
-              <div className="h-0.5 w-4 bg-white rotate-45 top-0.5 relative"></div>
-              <div className="h-0.5 w-4 bg-white -rotate-45 "></div>
+              <div className="h-0.5 w-4 bg-primary-color rotate-45 top-0.5 relative"></div>
+              <div className="h-0.5 w-4 bg-primary-color -rotate-45 "></div>
             </>
           ) : (
             <>
-              <div className="h-0.5 w-4 bg-white mb-1"></div>
-              <div className="h-0.5 w-4 bg-white mb-1"></div>
-              <div className="h-0.5 w-4 bg-white"></div>
+              <div className="h-0.5 w-4 bg-primary-color mb-1"></div>
+              <div className="h-0.5 w-4 bg-primary-color mb-1"></div>
+              <div className="h-0.5 w-4 bg-primary-color"></div>
             </>
           )}
         </div>
@@ -49,7 +49,7 @@ const NavbarMobile = () => {
             <Link
               to={product.link}
               key={product.label}
-              className="text-white underline-offset-2 hover:underline hover:duration-300 text-4xl mt-5"
+              className="text-primary-color underline-offset-2 hover:underline hover:duration-300 text-4xl mt-5"
               onClick={closeNav}
             >
               {product.label}
@@ -60,7 +60,7 @@ const NavbarMobile = () => {
               <Link
                 to={link.link}
                 key={link.label}
-                className="text-white underline-offset-2 hover:underline hover:duration-300 text-4xl mt-5"
+                className="text-primary-color underline-offset-2 hover:underline hover:duration-300 text-4xl mt-5"
                 onClick={closeNav}
               >
                 {link.label}
