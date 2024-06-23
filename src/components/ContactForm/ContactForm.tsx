@@ -90,7 +90,7 @@ const ContactForm = ({ data }: ContactFormDataType) => {
                 alt="green tick"
                 className="max-w-200 "
               />
-              <p className="text-white mb-5 text-xl lg:text-2xl">
+              <p className="text-off-white mb-5 text-xl lg:text-2xl">
                 Thank you for getting in touch. I will get back to you as soon
                 as possible!
               </p>
