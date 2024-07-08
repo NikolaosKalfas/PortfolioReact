@@ -26,7 +26,7 @@ const Navbar = () => {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="text-primary-color navbar-link underline-offset-2 hover:underline hover:duration-300 cursor-pointer inline navbar-link text-base leading-6 relative font-semibold"
             >
-              Products{" "}
+              Services{" "}
               <div
                 className={`text-primary-color inline-block ${
                   dropdownOpen ? "rotate-180" : ""
