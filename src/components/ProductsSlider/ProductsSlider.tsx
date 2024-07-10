@@ -53,7 +53,7 @@ const ProductsSlider = (data: ProductsSliderDataType) => {
             </SwiperSlide>
           ))}
       </Swiper>
-      {data.data.note && (
+      {data.data.note.note && (
         <div className="">
           <p className="text-lg font-semibold text-text-color-primary">{data.data.note.note}</p>
         </div>
