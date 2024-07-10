@@ -1,6 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
+
 import SectionTitle from "../SectionTitle/SectionTitle";
 import ProductCard from "./ProductCard";
 import { ProductCardDataType } from "./ProductCard";
@@ -13,11 +15,16 @@ type ProductsSliderDataType = {
   data: {
     title: string;
     sliderProductCard: ProductCardDataType[];
+    note: {
+      note: string;
+    }
   };
 };
 
 const ProductsSlider = (data: ProductsSliderDataType) => {
   const cards = data.data.sliderProductCard;
+
+  console.log(data.data)
   return (
     <section className="page-container bg-tertiary-color">
       {data.data.title && <SectionTitle title={data.data.title} />}
@@ -46,6 +53,11 @@ const ProductsSlider = (data: ProductsSliderDataType) => {
             </SwiperSlide>
           ))}
       </Swiper>
+      {data.data.note && (
+        <div className="">
+          <p className="text-lg font-semibold text-text-color-primary">{data.data.note.note}</p>
+        </div>
+      )}
     </section>
   );
 };
