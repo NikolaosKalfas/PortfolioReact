@@ -203,6 +203,9 @@ export const pageQuery = graphql`
         __typename
         id
         title
+        note {
+          note
+        }
         sliderProductCard {
           cardImage {
             gatsbyImageData

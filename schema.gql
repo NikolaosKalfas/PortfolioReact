@@ -1,4 +1,4 @@
-### Type definitions saved at 2024-07-08T18:57:33.096Z ###
+### Type definitions saved at 2024-07-10T19:00:14.805Z ###
 
 enum RemoteFileFit {
   COVER
@@ -600,6 +600,7 @@ type ContentfulProductsSlider implements ContentfulReference & ContentfulEntry &
   title: String
   sliderProductCard: [ContentfulProductCard] @link(by: "id", from: "sliderProductCard___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  note: contentfulProductsSliderNoteTextNode @link(by: "id", from: "note___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -1031,6 +1032,15 @@ type ContentfulTestimonialsSliderSysContentTypeSys {
   type: String
   linkType: String
   id: String
+}
+
+type contentfulProductsSliderNoteTextNode implements Node @derivedTypes @childOf(types: ["ContentfulProductsSlider"]) @dontInfer {
+  note: String
+  sys: contentfulProductsSliderNoteTextNodeSys
+}
+
+type contentfulProductsSliderNoteTextNodeSys {
+  type: String
 }
 
 type ContentfulProductsSliderSys @derivedTypes {
