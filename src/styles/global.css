@@ -30,7 +30,7 @@
   }
 
   p {
-    @apply mb-5 text-xl lg:text-2xl;
+    @apply mb-4 text-xl lg:text-2xl;
   }
 
   input[type="text"],

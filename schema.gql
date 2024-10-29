@@ -1,4 +1,4 @@
-### Type definitions saved at 2024-07-10T19:00:14.805Z ###
+### Type definitions saved at 2024-10-29T20:59:30.112Z ###
 
 enum RemoteFileFit {
   COVER
@@ -544,7 +544,6 @@ type ContentfulButton implements ContentfulReference & ContentfulEntry & Node @d
   buttonLabel: String
   buttonLink: String
   secondary: Boolean
-  homepage_header: [ContentfulHomepageHeader] @link(by: "id", from: "homepage header___NODE") @proxy(from: "homepage header___NODE")
   product_card: [ContentfulProductCard] @link(by: "id", from: "product card___NODE") @proxy(from: "product card___NODE")
   spaceId: String
   createdAt: Date @dateformat
