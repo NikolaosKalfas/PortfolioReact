@@ -34,15 +34,12 @@ export default (data: any) => {
   createComponentsArr();
   const blocks = componentBuilder(componentsArr);
 
-  console.log(componentsArr);
-  console.log(blocks);
-  console.log(pageData);
-
   return (
     <div>
       <GatsbySeo
         title={pageData.seo.title + " - Nikolaos Kalfas"}
         description={pageData.seo.description}
+        language="en"
         canonical={url}
         openGraph={{
           url: url,
