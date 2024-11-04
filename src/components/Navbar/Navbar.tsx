@@ -28,6 +28,8 @@ const Navbar = () => {
             >
               Services{" "}
               <div
+                role="button"
+                aria-label="Menu services dropdown"
                 className={`text-primary-color inline-block ${
                   dropdownOpen ? "rotate-180" : ""
                 }`}
