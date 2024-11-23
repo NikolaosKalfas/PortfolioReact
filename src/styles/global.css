@@ -30,7 +30,7 @@
   }
 
   p {
-    @apply mb-4 text-xl lg:text-2xl;
+    @apply mb-4 text-base lg:text-lg;
   }
 
   input[type="text"],
@@ -135,10 +135,9 @@
   .swiper .swiper-button-prev,
   .swiper .swiper-button-next {
     @apply text-off-white !important;
-
   }
   .swiper .swiper-pagination-bullet-active {
-    @apply bg-off-white
+    @apply bg-off-white;
   }
 
   .testimonial-copy p {
