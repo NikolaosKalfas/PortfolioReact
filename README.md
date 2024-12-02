@@ -1,6 +1,6 @@
 ## Live site
 
-https://portfolio-react-seven-liart.vercel.app/
+https://nikoskalfas.com
 
 ## Preview site
 
