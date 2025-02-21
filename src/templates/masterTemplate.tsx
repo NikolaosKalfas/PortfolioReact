@@ -27,6 +27,7 @@ export default (data: any) => {
     componentsArr.push(pageData.skills);
     componentsArr.push(pageData.productCardsSlider);
     componentsArr.push(pageData.testimonialsCarousel);
+    componentsArr.push(pageData.faQs)
     componentsArr.push(pageData.iconsRow);
     componentsArr.push(pageData.contactForm);
   }
@@ -240,6 +241,17 @@ export const pageQuery = graphql`
           }
           name
           business
+        }
+      }
+      faQs {
+        __typename
+        id
+        title
+        faqSingleItem {
+          question
+          answer {
+            answer
+          }
         }
       }
       plainTextContainer {

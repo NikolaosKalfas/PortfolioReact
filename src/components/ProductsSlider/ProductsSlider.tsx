@@ -1,7 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper";
-import { renderRichText } from "gatsby-source-contentful/rich-text";
 
 import SectionTitle from "../SectionTitle/SectionTitle";
 import ProductCard from "./ProductCard";
