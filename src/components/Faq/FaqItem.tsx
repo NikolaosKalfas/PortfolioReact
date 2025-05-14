@@ -13,7 +13,6 @@ export type FaqItemDataType = {
 
 const FaqItem = ({data}: FaqItemDataType) => {
     const [faqHidden, setFaqHidden] = useState(false)
-    console.log(data)
 
     return (
         <div className="text-primary-color w-full border-b">

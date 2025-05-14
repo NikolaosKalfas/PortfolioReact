@@ -1,4 +1,4 @@
-### Type definitions saved at 2025-02-21T19:26:00.046Z ###
+### Type definitions saved at 2025-05-14T18:39:27.347Z ###
 
 enum RemoteFileFit {
   COVER
@@ -544,6 +544,7 @@ type ContentfulButton implements ContentfulReference & ContentfulEntry & Node @d
   buttonLabel: String
   buttonLink: String
   secondary: Boolean
+  homepage_header: [ContentfulHomepageHeader] @link(by: "id", from: "homepage header___NODE") @proxy(from: "homepage header___NODE")
   product_card: [ContentfulProductCard] @link(by: "id", from: "product card___NODE") @proxy(from: "product card___NODE")
   spaceId: String
   createdAt: Date @dateformat
@@ -617,6 +618,7 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
   freeConsultancyForm: ContentfulConsultancyForm @link(by: "id", from: "freeConsultancyForm___NODE")
   productCardsSlider: ContentfulProductsSlider @link(by: "id", from: "productCardsSlider___NODE")
+  faQs: ContentfulFaqComponent @link(by: "id", from: "faQs___NODE")
   contactForm: ContentfulContactForm @link(by: "id", from: "contactForm___NODE")
   spaceId: String
   createdAt: Date @dateformat
@@ -627,7 +629,6 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   plainTextContainer: ContentfulPlainText @link(by: "id", from: "plainTextContainer___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
   testimonialsCarousel: ContentfulTestimonialsSlider @link(by: "id", from: "testimonialsCarousel___NODE")
-  faQs: ContentfulFaqComponent @link(by: "id", from: "faQs___NODE")
 }
 
 type ContentfulSecondaryHeader implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -860,6 +861,71 @@ type ContentfulConsultancyFormSysContentTypeSys {
   id: String
 }
 
+type ContentfulFaqComponent implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  faqSingleItem: [ContentfulFaqItem] @link(by: "id", from: "faqSingleItem___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulFaqComponentSys
+}
+
+type ContentfulFaqItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  question: String
+  faq_component: [ContentfulFaqComponent] @link(by: "id", from: "faq component___NODE") @proxy(from: "faq component___NODE")
+  answer: contentfulFaqItemAnswerTextNode @link(by: "id", from: "answer___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulFaqItemSys
+}
+
+type contentfulFaqItemAnswerTextNode implements Node @derivedTypes @childOf(types: ["ContentfulFaqItem"]) @dontInfer {
+  answer: String
+  sys: contentfulFaqItemAnswerTextNodeSys
+}
+
+type contentfulFaqItemAnswerTextNodeSys {
+  type: String
+}
+
+type ContentfulFaqItemSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulFaqItemSysContentType
+}
+
+type ContentfulFaqItemSysContentType @derivedTypes {
+  sys: ContentfulFaqItemSysContentTypeSys
+}
+
+type ContentfulFaqItemSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulFaqComponentSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulFaqComponentSysContentType
+}
+
+type ContentfulFaqComponentSysContentType @derivedTypes {
+  sys: ContentfulFaqComponentSysContentTypeSys
+}
+
+type ContentfulFaqComponentSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
 type ContentfulContactForm implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
@@ -1029,71 +1095,6 @@ type ContentfulTestimonialsSliderSysContentType @derivedTypes {
 }
 
 type ContentfulTestimonialsSliderSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulFaqComponent implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  faqSingleItem: [ContentfulFaqItem] @link(by: "id", from: "faqSingleItem___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulFaqComponentSys
-}
-
-type ContentfulFaqItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  question: String
-  faq_component: [ContentfulFaqComponent] @link(by: "id", from: "faq component___NODE") @proxy(from: "faq component___NODE")
-  answer: contentfulFaqItemAnswerTextNode @link(by: "id", from: "answer___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulFaqItemSys
-}
-
-type contentfulFaqItemAnswerTextNode implements Node @derivedTypes @childOf(types: ["ContentfulFaqItem"]) @dontInfer {
-  answer: String
-  sys: contentfulFaqItemAnswerTextNodeSys
-}
-
-type contentfulFaqItemAnswerTextNodeSys {
-  type: String
-}
-
-type ContentfulFaqItemSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulFaqItemSysContentType
-}
-
-type ContentfulFaqItemSysContentType @derivedTypes {
-  sys: ContentfulFaqItemSysContentTypeSys
-}
-
-type ContentfulFaqItemSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulFaqComponentSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulFaqComponentSysContentType
-}
-
-type ContentfulFaqComponentSysContentType @derivedTypes {
-  sys: ContentfulFaqComponentSysContentTypeSys
-}
-
-type ContentfulFaqComponentSysContentTypeSys {
   type: String
   linkType: String
   id: String

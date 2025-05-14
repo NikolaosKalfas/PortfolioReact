@@ -1,5 +1,6 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from 'react-google-recaptcha';
 
 import InputEmail from "../InputEmail/InputEmail";
 import InputMessage from "../InputMessage/InputMessage";
@@ -36,6 +37,9 @@ const ContactForm = ({ data }: ContactFormDataType) => {
   const [submitDisabled, setSubmitDisabled] = useState(true);
   const [formSubmited, setFormSubmited] = useState(false);
 
+  const reCaptchaRef = useRef<InstanceType<typeof ReCAPTCHA>>(null);
+
+
   useEffect(() => {
     if (!data.name) {
       setIsNameValid(true);
@@ -65,18 +69,46 @@ const ContactForm = ({ data }: ContactFormDataType) => {
     }
   }, [isNameValid, isEmailValid, isPhoneValid, isMessageValid, isTickValid]);
 
-  const sendEmail = (e: FormEvent) => {
-    e.preventDefault();
+const sendEmail = async (e: FormEvent) => {
+  e.preventDefault();
 
-    emailjs.sendForm(
+  try {
+    // Get the token from reCAPTCHA
+    const token = await reCaptchaRef.current?.executeAsync();
+    reCaptchaRef.current?.reset();
+
+    if (!token) {
+      console.error("Failed to get reCAPTCHA token.");
+      return;
+    }
+
+    // Create a hidden input with the token
+    const recaptchaInput = document.createElement("input");
+    recaptchaInput.setAttribute("type", "hidden");
+    recaptchaInput.setAttribute("name", "g-recaptcha-response");
+    recaptchaInput.setAttribute("value", token);
+    form.current.appendChild(recaptchaInput);
+
+    // Try sending the email with emailjs
+    await emailjs.sendForm(
       "portfolio-form",
       "contact_form",
       form.current,
       "gpnpIfmkzPUYPM3rZ"
     );
 
+    // Success - set form submission state
     setFormSubmited(true);
-  };
+
+  } catch (error) {
+    console.error("Error during form submission:", error);
+
+    // You can also handle specific error messages or retries here
+    // Optionally, show a user-friendly message or retry submission
+  }
+};
+
+
 
   return (
     <>
@@ -134,6 +166,12 @@ const ContactForm = ({ data }: ContactFormDataType) => {
               <InputSubmit disabledBtn={submitDisabled} />
             </form>
           )}
+          <ReCAPTCHA 
+            className={'g-recaptcha'}
+            sitekey={process.env.GATSBY_RECAPTCHA_KEY}
+            size="invisible"
+            ref={reCaptchaRef}
+          />
         </section>
       )}
     </>
