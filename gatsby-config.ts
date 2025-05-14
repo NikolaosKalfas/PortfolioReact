@@ -3,7 +3,7 @@ require("dotenv").config({
   path: `.env`,
 });
 
-const SITE_URL = "https://nikolaoskalfas.com";
+const SITE_URL = "https://nikoswebvision.com/";
 
 const config: GatsbyConfig = {
   siteMetadata: {
