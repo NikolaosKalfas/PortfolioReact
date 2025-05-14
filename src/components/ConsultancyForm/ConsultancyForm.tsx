@@ -1,6 +1,9 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from 'react-google-recaptcha';
+
+
+import SectionTitle from "../SectionTitle/SectionTitle";
 import InputEmail from "../InputEmail/InputEmail";
 import InputSubmit from "../InputSubmit/InputSubmit";
 import InputText from "../InputText/InputText";
@@ -21,6 +24,8 @@ const ConsultancyForm = (data: ConsultancyFormDataType) => {
   const [submitDisabled, setSubmitDisabled] = useState(true);
   const [formSubmited, setFormSubmited] = useState(false);
 
+  const reCaptchaRef = useRef<InstanceType<typeof ReCAPTCHA>>(null);
+
   useEffect(() => {
     if (isEmailValid && isUrlValid) {
       setSubmitDisabled(false);
@@ -29,17 +34,39 @@ const ConsultancyForm = (data: ConsultancyFormDataType) => {
     }
   }, [isUrlValid, isEmailValid]);
 
-  const sendEmail = (e: FormEvent) => {
+  const sendEmail = async (e: FormEvent) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      "portfolio-form",
-      "consultancy_form",
-      form.current,
-      "gpnpIfmkzPUYPM3rZ"
-    );
+    try {
+      // Get reCAPTCHA token
+      const token = await reCaptchaRef.current?.executeAsync();
+      reCaptchaRef.current?.reset();
 
-    setFormSubmited(true);
+      if (!token) {
+        console.error("Failed to get reCAPTCHA token.");
+        return;
+      }
+
+      // Create a hidden input with the reCAPTCHA response token
+      const recaptchaInput = document.createElement("input");
+      recaptchaInput.setAttribute("type", "hidden");
+      recaptchaInput.setAttribute("name", "g-recaptcha-response");
+      recaptchaInput.setAttribute("value", token);
+      form.current.appendChild(recaptchaInput);
+
+      // Send email
+      await emailjs.sendForm(
+        "portfolio-form",
+        "consultancy_form",
+        form.current,
+        "gpnpIfmkzPUYPM3rZ"
+      );
+
+      // Successfully submitted
+      setFormSubmited(true);
+    } catch (error) {
+      console.error("Error during form submission:", error);
+    }
   };
 
   return (
@@ -83,6 +110,11 @@ const ConsultancyForm = (data: ConsultancyFormDataType) => {
           </div>
         </form>
       )}
+        <ReCAPTCHA
+          sitekey={process.env.GATSBY_RECAPTCHA_KEY}
+          size="invisible"
+          ref={reCaptchaRef}
+        />
     </section>
   );
 };
