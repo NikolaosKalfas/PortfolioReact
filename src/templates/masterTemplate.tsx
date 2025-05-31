@@ -5,6 +5,19 @@ import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Footer from "../components/Footer/Footer";
 import NavbarContainer from "../components/Navbar/NavbarContainer";
 import CookieConsent from "react-cookie-consent";
+import { Helmet } from "react-helmet";
+// @ts-ignore
+import favicon from '/src/images/favicon.ico'
+// @ts-ignore
+import androidChrome192 from '/src/images/android-chrome-192x192.png'
+// @ts-ignore
+import androidChrome512 from '/src/images/android-chrome-512x512.png'
+// @ts-ignore
+import favicon32 from '/src/images/favicon-32x32.png'
+// @ts-ignore
+import favicon16 from '/src/images/favicon-16x16.png'
+// @ts-ignore
+import appleTouch from '/src/images/apple-touch-icon.png'
 
 export default (data: any) => {
   const [url, setUrl] = useState("");
@@ -37,6 +50,14 @@ export default (data: any) => {
 
   return (
     <div>
+      <Helmet>
+          <link rel="icon" type="image/x-icon" href={favicon} />
+          <link rel="icon" type="image/png" sizes={'192'} href={androidChrome192} />
+          <link rel="icon" type="image/png" sizes={'512'} href={androidChrome512} />
+          <link rel="icon" type="image/png" sizes={'32'} href={favicon32} />
+          <link rel="icon" type="image/png" sizes={'16'} href={favicon16} />
+          <link rel="icon" type="image/png"  href={appleTouch} />
+      </Helmet>
       <GatsbySeo
         title={pageData.seo.title + " - Nikolaos Kalfas"}
         description={pageData.seo.description}
