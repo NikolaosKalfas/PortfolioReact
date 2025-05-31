@@ -5,6 +5,7 @@ import { GatsbySeo } from "gatsby-plugin-next-seo";
 import Footer from "../components/Footer/Footer";
 import NavbarContainer from "../components/Navbar/NavbarContainer";
 import CookieConsent from "react-cookie-consent";
+import { Helmet } from "react-helmet";
 
 export default (data: any) => {
   const [url, setUrl] = useState("");
@@ -37,6 +38,9 @@ export default (data: any) => {
 
   return (
     <div>
+      <Helmet>
+          <link rel="icon" type="image/png" sizes="32x32" href="/src/images/favicon-32x32.png"/>
+      </Helmet>
       <GatsbySeo
         title={pageData.seo.title + " - Nikolaos Kalfas"}
         description={pageData.seo.description}
