@@ -39,7 +39,7 @@ export default (data: any) => {
   return (
     <div>
       <Helmet>
-          <link rel="icon" type="image/png" sizes="32x32" href="/src/images/favicon-32x32.png"/>
+          <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-32x32.png"/>
       </Helmet>
       <GatsbySeo
         title={pageData.seo.title + " - Nikolaos Kalfas"}
