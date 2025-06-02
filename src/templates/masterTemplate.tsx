@@ -57,6 +57,17 @@ export default (data: any) => {
           <link rel="icon" type="image/png" sizes={'32'} href={favicon32} />
           <link rel="icon" type="image/png" sizes={'16'} href={favicon16} />
           <link rel="icon" type="image/png"  href={appleTouch} />
+          {/* Google tag (gtag.js) */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6Y4EMVPRH"></script>
+          <script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)}
+              gtag('js', new Date());
+
+              gtag('config', 'G-E6Y4EMVPRH');
+            `}
+          </script>
       </Helmet>
       <GatsbySeo
         title={pageData.seo.title + " - Nikolaos Kalfas"}

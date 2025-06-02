@@ -39,7 +39,6 @@ const ContactForm = ({ data }: ContactFormDataType) => {
 
   const reCaptchaRef = useRef<InstanceType<typeof ReCAPTCHA>>(null);
 
-
   useEffect(() => {
     if (!data.name) {
       setIsNameValid(true);
@@ -96,6 +95,14 @@ const sendEmail = async (e: FormEvent) => {
       form.current,
       "gpnpIfmkzPUYPM3rZ"
     );
+
+    if (typeof window.gtag !== 'undefined') {
+      window.gtag('event', 'manual_event_SUBMIT_LEAD_FORM', {
+        event_category: 'lead_form',
+        event_label: 'Contact form submitted'
+      });
+
+    }
 
     // Success - set form submission state
     setFormSubmited(true);
