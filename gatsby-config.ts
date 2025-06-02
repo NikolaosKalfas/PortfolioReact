@@ -58,7 +58,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
         googleAnalytics: {
-          trackingId: process.env.GATSBY_GA_ID, // leave empty if you want to disable the tracker
+          trackingId: '', // leave empty if you want to disable the tracker - Left to avoid duplicate page_view events as we added the gtag in Helmet.
           cookieName: "gatsby-gdpr-google-analytics", // default
           anonymize: true, // default
           allowAdFeatures: false, // default
