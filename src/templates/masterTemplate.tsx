@@ -7,6 +7,7 @@ import NavbarContainer from "../components/Navbar/NavbarContainer";
 import CookieConsent from "react-cookie-consent";
 import { Helmet } from "react-helmet";
 import { injectSpeedInsights } from '@vercel/speed-insights'
+import { inject } from '@vercel/analytics';
 // @ts-ignore
 import favicon from '/src/images/favicon.ico'
 // @ts-ignore
@@ -51,6 +52,7 @@ export default (data: any) => {
 
   // Vercel Tracking
   injectSpeedInsights();
+  inject()
 
   return (
     <div>
