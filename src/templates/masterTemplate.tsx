@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer";
 import NavbarContainer from "../components/Navbar/NavbarContainer";
 import CookieConsent from "react-cookie-consent";
 import { Helmet } from "react-helmet";
+import { injectSpeedInsights } from '@vercel/speed-insights'
 // @ts-ignore
 import favicon from '/src/images/favicon.ico'
 // @ts-ignore
@@ -48,26 +49,29 @@ export default (data: any) => {
   createComponentsArr();
   const blocks = componentBuilder(componentsArr);
 
+  // Vercel Tracking
+  injectSpeedInsights();
+
   return (
     <div>
       <Helmet>
-          <link rel="icon" type="image/x-icon" href={favicon} />
-          <link rel="icon" type="image/png" sizes={'192'} href={androidChrome192} />
-          <link rel="icon" type="image/png" sizes={'512'} href={androidChrome512} />
-          <link rel="icon" type="image/png" sizes={'32'} href={favicon32} />
-          <link rel="icon" type="image/png" sizes={'16'} href={favicon16} />
-          <link rel="icon" type="image/png"  href={appleTouch} />
-          {/* Google tag (gtag.js) */}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6Y4EMVPRH"></script>
-          <script>
-            {`
+        <link rel="icon" type="image/x-icon" href={favicon} />
+        <link rel="icon" type="image/png" sizes={'192'} href={androidChrome192} />
+        <link rel="icon" type="image/png" sizes={'512'} href={androidChrome512} />
+        <link rel="icon" type="image/png" sizes={'32'} href={favicon32} />
+        <link rel="icon" type="image/png" sizes={'16'} href={favicon16} />
+        <link rel="icon" type="image/png" href={appleTouch} />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6Y4EMVPRH"></script>
+        <script>
+          {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments)}
               gtag('js', new Date());
 
               gtag('config', 'G-E6Y4EMVPRH');
             `}
-          </script>
+        </script>
       </Helmet>
       <GatsbySeo
         title={pageData.seo.title + " - Nikolaos Kalfas"}
