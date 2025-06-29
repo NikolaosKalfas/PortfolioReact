@@ -1,4 +1,4 @@
-### Type definitions saved at 2025-06-08T13:22:48.200Z ###
+### Type definitions saved at 2025-06-29T18:36:45.593Z ###
 
 enum RemoteFileFit {
   COVER
@@ -663,6 +663,7 @@ type ContentfulProjects implements ContentfulReference & ContentfulEntry & Node 
   node_locale: String!
   title: String
   projects: [ContentfulProjectItem] @link(by: "id", from: "projects___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat

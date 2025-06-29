@@ -30,14 +30,14 @@ const ProjectsGrid = ({ data }: ProjectsGridDataType) => {
                   className="text-off-white cursor-pointer grid-card relative"
                   key={project.link}
                 >
-                  <div className="">
+                  <div className="grid-card-image-container">
                     <GatsbyImage
                       image={project.image.gatsbyImageData}
                       alt={project.title}
                     />
                   </div>
                   <div className="grid-card-overlay">
-                    <p className="">{project.title}</p>
+                    <button className="grid-card-button">{project.title}</button>
                   </div>
                 </a>
               ))}
