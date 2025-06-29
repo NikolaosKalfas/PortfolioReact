@@ -43,7 +43,7 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
   return (
     <>
       {data.heading && (
-        <div className="page-container bg-primary-color w-full pt-80">
+        <div className="page-container bg-primary-color w-full md:pt-80 pt-10">
           <div className="my-5">
             {breadcrumbs.map((item: BreadcrumbType, i) => {
               if (i < breadcrumbs.length - 1) {
