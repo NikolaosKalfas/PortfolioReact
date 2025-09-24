@@ -22,7 +22,7 @@ const Footer = () => {
   return (
     <footer className="border-t border-t-primary-color bg-off-white w-full">
       <div className="page-container">
-        <div className="text-navigation-color flex flex-col md:flex-row justify-between md:items-end font-semibold">
+        <div className="text-navigation-color flex flex-row justify-between md:items-end font-semibold">
           Nikolaos Kalfas &copy; {new Date().getFullYear()}
           <div className="">
             {footerData.socialLink &&
