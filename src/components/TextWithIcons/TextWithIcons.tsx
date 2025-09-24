@@ -16,7 +16,7 @@ const TextWithIcons = ({ data }: TextWithIconsDataType) => {
   return (
     <>
       {data.title && (
-        <section className="page-container">
+        <section className="page-container hide-on-mobile">
           {data.title && <SectionTitle title={data.title} />}
           {data.text && (
             <div className="mb-5 text-xl lg:text-2xl text-text-color-primary">
@@ -24,7 +24,7 @@ const TextWithIcons = ({ data }: TextWithIconsDataType) => {
             </div>
           )}
           {data.icons?.length && (
-            <div className="flex flex-col items-center md:flex-row gap-7 justify-around lg:pt-5">
+            <div className="flex flex-col items-center md:flex-row gap-7 justify-around lg:pt-5 ">
               {data.icons.map((icon) => (
                 <div key={icon.title}>
                   <div className="max-w-60 m-auto">

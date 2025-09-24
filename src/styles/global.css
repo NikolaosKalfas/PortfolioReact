@@ -54,6 +54,10 @@
     @apply outline-slate-400;
   }
 
+  .hide-on-mobile {
+    display: none !important;
+  }
+
   textarea {
     resize: none;
   }
@@ -139,7 +143,7 @@
 
   .swiper .swiper-button-prev,
   .swiper .swiper-button-next {
-    @apply text-off-white !important;
+    display: none;
   }
   .swiper .swiper-pagination-bullet-active {
     @apply bg-off-white;
@@ -158,6 +162,20 @@
     li {
       @apply text-2xl;
     }
+
+    .hide-on-mobile {
+      display: block !important;
+    }
+
+    .flex.hide-on-mobile{
+      display: flex !important;
+    }
+
+    .swiper .swiper-button-prev,
+    .swiper .swiper-button-next {
+      @apply text-off-white !important;
+      display: flex;
+    }
   }
 
   @media screen and (min-width: 1024px) {
@@ -173,5 +191,7 @@
     .header-copy p {
       @apply text-5xl;
     }
+
+
   }
 }

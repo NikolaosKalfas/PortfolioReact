@@ -23,11 +23,11 @@ const ProjectsGrid = ({ data }: ProjectsGridDataType) => {
           {data.title && <SectionTitle title={data.title} secondary />}
           {data.projects && (
             <div className="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-5">
-              {data.projects.map((project) => (
+              {data.projects.map((project, i) => (
                 <a
                   target="__blank"
                   href={project.link}
-                  className="text-off-white cursor-pointer grid-card relative"
+                  className={`text-off-white cursor-pointer grid-card relative ${(i === data.projects.length -1 || i ===  data.projects.length -2) ? 'hide-on-mobile' : ''}`}
                   key={project.link}
                 >
                   <div className="grid-card-image-container">
