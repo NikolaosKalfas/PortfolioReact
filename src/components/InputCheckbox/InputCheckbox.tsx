@@ -16,18 +16,19 @@ const InputCheckbox = ({ setInputValue, setInputValidity }: InputType) => {
 
   return (
     <div>
-      <label className="text-off-white cursor-pointer">
+      <label htmlFor="privacy-policy-check" className="text-off-white cursor-pointer">
         <input
           type="checkbox"
+          id="privacy-policy-check"
+          name="privacyPolicyAccepted"
           checked={checked}
           onChange={(e) => setChecked(!checked)}
           className="cursor-pointer mr-2"
         />{" "}
         By clicking here you accept the{" "}
-        <a href="/privacy-policy" className="underline" target="_blank">
+        <a href="/privacy-policy" className="underline" target="_blank" rel="noopener noreferrer">
           Privacy policy
-        </a>
-        .
+        </a>.
       </label>
     </div>
   );
