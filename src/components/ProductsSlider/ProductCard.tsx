@@ -39,14 +39,14 @@ const ProductCard = (data: ProductCardDataType) => {
         )}
         {card.included && (
           <div className="my-4 flex justify-center">
-            <div>
+            <ul className="list-none ">
               {card.included.map((service: any) => (
-                <p className="text-lg text-primary-color" key={service.title}>
+                <li className=" flex items-start gap-4 text-xl text-primary-color list-none" key={service.title}>
                   <span className="text-green-500 text-sm">&#10003;</span>{" "}
                   {service.title}
-                </p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         )}
       </div>
