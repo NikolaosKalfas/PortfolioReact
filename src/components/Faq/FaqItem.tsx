@@ -17,7 +17,7 @@ const FaqItem = ({data}: FaqItemDataType) => {
     return (
         <div className="text-primary-color w-full border-b">
             <button 
-                className="font-bold text-xl pt-5 pb-5 w-full flex justify-between items-center" 
+                className="font-bold text-3xl pt-5 pb-5 w-full flex justify-between items-center" 
                 aria-expanded={!faqHidden} 
                 aria-controls={`faq-${data.question}`}
                 onClick={() => setFaqHidden(!faqHidden)}

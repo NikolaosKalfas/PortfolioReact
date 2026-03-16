@@ -1,4 +1,4 @@
-### Type definitions saved at 2025-09-24T19:36:37.268Z ###
+### Type definitions saved at 2026-03-16T19:40:09.892Z ###
 
 enum RemoteFileFit {
   COVER
@@ -625,9 +625,9 @@ type ContentfulPage implements ContentfulReference & ContentfulEntry & Node @der
   updatedAt: Date @dateformat
   sys: ContentfulPageSys
   skills: ContentfulImageLeftWithText @link(by: "id", from: "skills___NODE")
-  titleAndText: ContentfulTitleAndText @link(by: "id", from: "titleAndText___NODE")
   plainTextContainer: ContentfulPlainText @link(by: "id", from: "plainTextContainer___NODE")
   header: ContentfulHomepageHeader @link(by: "id", from: "header___NODE")
+  titleAndText: ContentfulTitleAndText @link(by: "id", from: "titleAndText___NODE")
   testimonialsCarousel: ContentfulTestimonialsSlider @link(by: "id", from: "testimonialsCarousel___NODE")
 }
 
