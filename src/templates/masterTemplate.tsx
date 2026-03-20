@@ -42,8 +42,7 @@ export default (data: any) => {
     componentsArr.push(pageData.skills);
     componentsArr.push(pageData.productCardsSlider);
     componentsArr.push(pageData.testimonialsCarousel);
-    componentsArr.push(pageData.faQs)
-    componentsArr.push(pageData.iconsRow);
+    componentsArr.push(pageData.faQs);
     componentsArr.push(pageData.contactForm);
   }
 
@@ -182,13 +181,6 @@ export const pageQuery = graphql`
         text {
           raw
         }
-        icons {
-          title
-          icon {
-            title
-            gatsbyImageData
-          }
-        }
       }
       projectsGrid {
         __typename
@@ -212,18 +204,6 @@ export const pageQuery = graphql`
         image {
           title
           gatsbyImageData
-        }
-      }
-      iconsRow {
-        __typename
-        id
-        title
-        icons {
-          title
-          icon {
-            gatsbyImageData
-            title
-          }
         }
       }
       contactForm {

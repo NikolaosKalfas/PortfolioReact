@@ -3,7 +3,6 @@ import HomepageHeader from "../components/HomepageHeader/HomepageHeader";
 import TextWithIcons from "../components/TextWithIcons/TextWithIcons";
 import ProjectsGrid from "../components/ProjectsGrid/ProjectsGrid";
 import ImageLeftWithText from "../components/ImageLeftWithText/ImageLeftWithText";
-import IconsRow from "../components/IconsRow/IconsRow";
 import ContactForm from "../components/ContactForm/ContactForm";
 import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 import ProductsSlider from "../components/ProductsSlider/ProductsSlider";
@@ -22,7 +21,6 @@ const componentMap: any = {
   ContentfulImageLeftWithText: (v: any) => (
     <ImageLeftWithText data={v} key={v.id} />
   ),
-  ContentfulIconsRow: (v: any) => <IconsRow data={v} key={v.id} />,
   ContentfulContactForm: (v: any) => <ContactForm data={v} key={v.id} />,
   ContentfulProductsSlider: (v: any) => <ProductsSlider data={v} key={v.id} />,
   ContentfulConsultancyForm: (v: any) => (
