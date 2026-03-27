@@ -102,7 +102,9 @@ export default (data: any) => {
       />
 
       <NavbarContainer />
-      {blocks?.map((block) => block)}
+      <main id="main-content">
+        {blocks?.map((block) => block)}
+      </main>
       <Footer />
       <CookieConsent
         location="bottom"
