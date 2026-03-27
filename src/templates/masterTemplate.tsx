@@ -181,6 +181,12 @@ export const pageQuery = graphql`
         text {
           raw
         }
+          cardItems {
+            title
+            description {
+              description
+            }
+          }
       }
       projectsGrid {
         __typename
