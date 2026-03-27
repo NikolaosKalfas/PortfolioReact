@@ -23,13 +23,17 @@
   }
 
   h2 {
-    @apply text-2xl;
+      @apply text-3xl;
   }
+
+  /* h3 {
+      @apply text-2xl;
+  } */
   li {
     @apply text-xl pb-3 list-disc;
   }
 
-  p {
+  p, h3 {
     @apply mb-4 text-lg lg:text-2xl;
   }
 
@@ -156,9 +160,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    h2 {
-      @apply text-3xl;
-    }
+
     li {
       @apply text-2xl;
     }
@@ -185,13 +187,21 @@
     h2 {
       @apply text-5xl;
     }
+
+    /* h3 {
+      @apply text-3xl;
+    } */
     .page-container {
       padding: 3% 10%;
     }
     .header-copy p {
       @apply text-5xl;
     }
+  }
 
-
+    @media screen and (min-width: 1440px) {
+    /* h3 {
+      @apply text-4xl;
+    } */
   }
 }
