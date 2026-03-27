@@ -22,10 +22,10 @@ const HomepageHeader = ({ data }: HomepageDataType) => {
     <>
       {data.greeting && (
         <header className="page-container bg-primary-color w-full flex flex-col md:flex-row md:items-center md:justify-between pt-80 text-text-color-secondary">
-          <div className="md:w-1/2">
+          <div className="order-2 md:order-1 md:w-1/2">
             <p className="text-2xl md:text-4xl font-bold text-text-color-secondary">
               {data.greeting && (
-                  <Typed strings={[data.greeting]} typeSpeed={150} />
+                  <Typed strings={[data.greeting]} typeSpeed={55} />
               )}
             </p>
             {data.headerCopy && (
@@ -42,7 +42,7 @@ const HomepageHeader = ({ data }: HomepageDataType) => {
               </div>
             )}
           </div>
-          <div className="md:w-1/2">
+          <div className="order-1 md:order-2 md:w-1/2">
             {data.image && (
               <GatsbyImage
                 image={data.image.gatsbyImageData}

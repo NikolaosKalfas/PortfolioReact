@@ -26,9 +26,6 @@
       @apply text-3xl;
   }
 
-  /* h3 {
-      @apply text-2xl;
-  } */
   li {
     @apply text-xl pb-3 list-disc;
   }
@@ -187,10 +184,6 @@
     h2 {
       @apply text-5xl;
     }
-
-    /* h3 {
-      @apply text-3xl;
-    } */
     .page-container {
       padding: 3% 10%;
     }
@@ -199,9 +192,4 @@
     }
   }
 
-    @media screen and (min-width: 1440px) {
-    /* h3 {
-      @apply text-4xl;
-    } */
-  }
 }
