@@ -3,7 +3,7 @@ require("dotenv").config({
   path: `.env`,
 });
 
-const SITE_URL = "https://nikoswebvision.com/";
+const SITE_URL = "https://nikoswebvision.com";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -66,6 +66,14 @@ const config: GatsbyConfig = {
         // defines the environments where the tracking should be available  - default is ["production"]
         environments: ["production", "development"],
       },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: SITE_URL,
+        sitemap: `${SITE_URL}/sitemap-index.xml`,
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
     },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",

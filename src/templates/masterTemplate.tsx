@@ -145,8 +145,6 @@ export const Head = ({ data }: any) => {
   
   const pageSchemas = generatePageSchemas(pageData, url);
 
-  console.log(pageSchemas)
-
   return (
     <>
       {pageSchemas.map((schema) => (
