@@ -1,4 +1,4 @@
-### Type definitions saved at 2026-03-27T16:00:00.426Z ###
+### Type definitions saved at 2026-04-11T10:35:59.248Z ###
 
 enum RemoteFileFit {
   COVER
@@ -955,11 +955,11 @@ type ContentfulTitleAndText implements ContentfulReference & ContentfulEntry & N
   title: String
   text: ContentfulTitleAndTextText
   cardItems: [ContentfulCardItem] @link(by: "id", from: "cardItems___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulTitleAndTextSys
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulTitleAndTextText {
