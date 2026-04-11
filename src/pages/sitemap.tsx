@@ -3,6 +3,7 @@ import React from "react";
 import Footer from "../components/Footer/Footer";
 import NavbarContainer from "../components/Navbar/NavbarContainer";
 import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
 
 const Sitemap = () => {
   const query = useStaticQuery(result);
@@ -10,14 +11,18 @@ const Sitemap = () => {
 
   return (
     <>
+    <GatsbySeo 
+        title="Sitemap - Nikolaos Kalfas" 
+        description="A list of all pages available on the site."
+      />
       <NavbarContainer />
       <SecondaryHeader data={{ heading: "Sitemap" }} />
       <section className="page-container w-full min-h-screen">
-        {links &&
-          links.map((page: any) => (
+        {links?.map((page: any) => (
             <Link
               className="block underline text-xl lg:text-2xl mb-5 hover:duration-300 hover:text-link-primary"
               to={page.title === "Home Page" ? page.slug : `/${page.slug}`}
+              key={page.title}
             >
               {page.title}
             </Link>

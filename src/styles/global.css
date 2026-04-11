@@ -19,11 +19,11 @@
   }
 
   h1 {
-    @apply text-5xl;
+    @apply text-3xl;
   }
 
   h2 {
-      @apply text-3xl;
+      @apply text-2xl;
   }
 
   li {
@@ -156,6 +156,12 @@
     margin: 0 auto;
   }
 
+  .secondary-header {
+      h1 {
+        @apply text-5xl
+      }
+    }
+
   @media screen and (min-width: 768px) {
 
     li {
@@ -179,16 +185,22 @@
 
   @media screen and (min-width: 1024px) {
     h1 {
-      @apply text-7xl;
+      @apply text-5xl;
     }
     h2 {
-      @apply text-5xl;
+      @apply text-4xl;
     }
     .page-container {
       padding: 3% 10%;
     }
     .header-copy p {
       @apply text-5xl;
+    }
+
+    .secondary-header {
+      h1 {
+        @apply text-7xl
+      }
     }
   }
 
