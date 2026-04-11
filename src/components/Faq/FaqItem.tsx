@@ -28,6 +28,7 @@ const FaqItem = ({data, index}: FaqItemDataType & {index: number }) => {
                 <StaticImage
                     src="../../images/dropdown_icon.png"
                     alt=""
+                    role="presentation"
                     className={`max-w-5 mt-2 transition-transform duration-500 ease-in-out ${
                         faqHidden ? "rotate-180" : "rotate-0"
                     }`}

@@ -8,6 +8,7 @@ import CookieConsent from "react-cookie-consent";
 import { Helmet } from "react-helmet";
 import { injectSpeedInsights } from '@vercel/speed-insights'
 import { inject } from '@vercel/analytics';
+import { generatePageSchemas } from "../helpers/tools";
 // @ts-ignore
 import favicon from '/src/images/favicon.ico'
 // @ts-ignore
@@ -30,6 +31,10 @@ export default (data: any) => {
     if (window.location !== undefined) {
       setUrl(window.location.href);
     }
+
+    // Vercel Tracking
+    injectSpeedInsights();
+    inject()
   }, []);
 
   function createComponentsArr() {
@@ -49,9 +54,7 @@ export default (data: any) => {
   createComponentsArr();
   const blocks = componentBuilder(componentsArr);
 
-  // Vercel Tracking
-  injectSpeedInsights();
-  inject()
+  const pageSchemas = generatePageSchemas(pageData, url);
 
   return (
     <div>
@@ -133,6 +136,27 @@ export default (data: any) => {
         .
       </CookieConsent>
     </div>
+  );
+};
+
+export const Head = ({ data }: any) => {
+  const pageData = data.page;
+  const url = `https://nikoswebvision.com/${pageData.slug === 'home' ? '' : pageData.slug}`;
+  
+  const pageSchemas = generatePageSchemas(pageData, url);
+
+  console.log(pageSchemas)
+
+  return (
+    <>
+      {pageSchemas.map((schema) => (
+        <script
+          key={`${schema.name}`}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
+    </>
   );
 };
 
