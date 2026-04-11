@@ -31,7 +31,7 @@
   }
 
   p, h3 {
-    @apply mb-4 text-lg lg:text-2xl;
+    @apply mb-4 text-lg lg:text-xl;
   }
 
   input[type="text"],
