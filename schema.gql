@@ -1,4 +1,4 @@
-### Type definitions saved at 2026-04-11T12:28:57.374Z ###
+### Type definitions saved at 2026-04-13T15:55:49.317Z ###
 
 enum RemoteFileFit {
   COVER
@@ -895,6 +895,7 @@ type ContentfulImageLeftWithText implements ContentfulReference & ContentfulEntr
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulImageLeftWithTextSys
+  imageRight: Boolean
 }
 
 type ContentfulImageLeftWithTextText {
