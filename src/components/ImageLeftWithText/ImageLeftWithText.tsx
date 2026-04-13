@@ -11,16 +11,19 @@ type ImageLeftWithTextDataType = {
       gatsbyImageData: any;
       title: string;
     };
+    imageRight: boolean
   };
 };
 
 const ImageLeftWithText = ({ data }: ImageLeftWithTextDataType) => {
+  const imageToTheRight = data.imageRight;
+
   return (
     <>
       {data.title && (
         <section className="page-container bg-tertiary-color">
           {data.title && <SectionTitle title={data.title} />}
-          <div className="md:flex md:gap-5">
+          <div className={`md:flex md:gap-5 ${imageToTheRight ? 'flex-row-reverse' : ''}`}>
             <div className="md:w-1/2">
               <GatsbyImage
                 image={data.image.gatsbyImageData}

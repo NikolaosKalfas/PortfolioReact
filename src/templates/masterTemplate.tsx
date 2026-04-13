@@ -235,6 +235,7 @@ export const pageQuery = graphql`
           title
           gatsbyImageData
         }
+          imageRight
       }
       contactForm {
         __typename
