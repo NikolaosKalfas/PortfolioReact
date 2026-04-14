@@ -24,9 +24,12 @@ const TextWithIcons = ({ data }: TextWithIconsDataType) => {
           )}
           {data.cardItems.length > 0 && (
             <div className="pt-5 lg:pt-16 flex flex-col lg:flex-row w-full justify-between text-text-color-primary gap-7 lg:gap-10">
-                {data.cardItems.map((cardItem) => (
-                  <CardItem key={cardItem.title} {...cardItem}/>
-                ))}
+                {data.cardItems
+                  ?.filter(cardItem => cardItem.title || cardItem.description)
+                  .map((cardItem) => (
+                    <CardItem key={cardItem.title} {...cardItem} />
+                  ))
+                }
             </div>
           )}
         </section>
