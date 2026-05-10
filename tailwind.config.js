@@ -20,6 +20,7 @@ module.exports = {
         "link-primary": "#1F51FF",
         "navigation-color": "#28282B",
         "off-white": "#f5f5f5",
+        "card-off-white": "#f8f7f3",
       },
       padding: {
         80: "80px",
