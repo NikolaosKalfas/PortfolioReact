@@ -53,8 +53,6 @@ export default (data: any) => {
   createComponentsArr();
   const blocks = componentBuilder(componentsArr);
 
-  const pageSchemas = generatePageSchemas(pageData, url);
-
   return (
     <div>
       <Helmet>
