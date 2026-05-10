@@ -23,12 +23,17 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
     const parts = url.split("/");
     let cumulativeLink = "/";
     for (let i = 0; i < parts.length; i++) {
-      const element = parts[i];
+      let element = parts[i];
       if (element === "") {
         continue;
       } else {
         const noDash = element.replaceAll("-", " ").replaceAll("_", " ");
-        const label = noDash[0].toUpperCase() + noDash.substring(1);
+        let label = noDash[0].toUpperCase() + noDash.substring(1);
+
+        if (label.toLowerCase() === "case-studies") {
+          label = "Case studies";
+          element = "case-studies";
+        }
         cumulativeLink = cumulativeLink + element + "/";
         newBreadCrumbs.push({
           name: label,

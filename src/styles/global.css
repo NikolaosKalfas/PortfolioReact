@@ -162,6 +162,25 @@
       }
     }
 
+    .content-item__container .content-item__img img {
+      transition: transform 0.25s ease-in-out;
+    }
+
+    .content-item__container:hover, .content-item__container:focus {
+      .content-item__img img{
+        transform: scale(1.05);
+      }
+
+      .content-item__title, .content-item__cta {
+        text-decoration: underline;
+      }
+    }
+
+  .article-body-wrapper .page-container {
+    @apply pb-0 pt-4
+  }
+
+
   @media screen and (min-width: 768px) {
 
     li {
