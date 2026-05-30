@@ -26,12 +26,20 @@
       @apply text-2xl;
   }
 
+  .article-body-wrapper h3 {
+      @apply text-xl font-semibold pb-2 pt-8;
+    }
+
   li {
     @apply text-xl pb-3 list-disc;
   }
 
   p, h3 {
     @apply mb-4 text-lg lg:text-xl;
+  }
+
+  a {
+    @apply text-secondary-color hover:underline focus:underline
   }
 
   input[type="text"],
@@ -176,10 +184,6 @@
       }
     }
 
-  .article-body-wrapper .page-container {
-    @apply pb-0 pt-4
-  }
-
 
   @media screen and (min-width: 768px) {
 
@@ -209,6 +213,11 @@
     h2 {
       @apply text-4xl;
     }
+
+    .article-body-wrapper h3 {
+      @apply text-3xl font-semibold pb-2 pt-12;
+    }
+
     .page-container {
       padding: 3% 10%;
     }

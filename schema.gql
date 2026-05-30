@@ -1,4 +1,4 @@
-### Type definitions saved at 2026-05-10T12:48:09.734Z ###
+### Type definitions saved at 2026-05-30T13:51:03.460Z ###
 
 enum RemoteFileFit {
   COVER
@@ -639,6 +639,7 @@ type ContentfulSecondaryHeader implements ContentfulReference & ContentfulEntry 
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulSecondaryHeaderSys
+  article: [ContentfulArticle] @link(by: "id", from: "article___NODE")
 }
 
 type ContentfulSecondaryHeaderSys @derivedTypes {
@@ -652,6 +653,77 @@ type ContentfulSecondaryHeaderSysContentType @derivedTypes {
 }
 
 type ContentfulSecondaryHeaderSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type ContentfulArticle implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  slug: String
+  type: String
+  summary: String
+  tags: String
+  publishedDate: Date @dateformat
+  readingTime: String
+  author: String
+  secondaryHeader: ContentfulSecondaryHeader @link(by: "id", from: "secondaryHeader___NODE")
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
+  bodyBlocks: [ContentfulArticleBodyBlocks] @link(by: "id", from: "bodyBlocks___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulArticleSys
+}
+
+type ContentfulSeoComponent implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  description: String
+  noIndex: Boolean
+  noFollow: Boolean
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulSeoComponentSys
+  article: [ContentfulArticle] @link(by: "id", from: "article___NODE")
+}
+
+type ContentfulSeoComponentSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulSeoComponentSysContentType
+}
+
+type ContentfulSeoComponentSysContentType @derivedTypes {
+  sys: ContentfulSeoComponentSysContentTypeSys
+}
+
+type ContentfulSeoComponentSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+union ContentfulArticleBodyBlocks = ContentfulSecondaryHeader | ContentfulTitleAndText | ContentfulImageLeftWithText
+
+type ContentfulArticleSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulArticleSysContentType
+}
+
+type ContentfulArticleSysContentType @derivedTypes {
+  sys: ContentfulArticleSysContentTypeSys
+}
+
+type ContentfulArticleSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -709,37 +781,6 @@ type ContentfulProjectsSysContentType @derivedTypes {
 }
 
 type ContentfulProjectsSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulSeoComponent implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  description: String
-  noIndex: Boolean
-  noFollow: Boolean
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
-  spaceId: String
-  createdAt: Date @dateformat
-  updatedAt: Date @dateformat
-  sys: ContentfulSeoComponentSys
-}
-
-type ContentfulSeoComponentSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulSeoComponentSysContentType
-}
-
-type ContentfulSeoComponentSysContentType @derivedTypes {
-  sys: ContentfulSeoComponentSysContentTypeSys
-}
-
-type ContentfulSeoComponentSysContentTypeSys {
   type: String
   linkType: String
   id: String
@@ -887,15 +928,16 @@ type ContentfulPageSysContentTypeSys {
 type ContentfulImageLeftWithText implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
   contentful_id: String!
   node_locale: String!
-  title: String
   text: ContentfulImageLeftWithTextText
+  imageRight: Boolean
   image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
+  article: [ContentfulArticle] @link(by: "id", from: "article___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulImageLeftWithTextSys
-  imageRight: Boolean
+  title: String
+  page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulImageLeftWithTextText {
@@ -928,6 +970,7 @@ type ContentfulTitleAndText implements ContentfulReference & ContentfulEntry & N
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulTitleAndTextSys
+  article: [ContentfulArticle] @link(by: "id", from: "article___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
@@ -1235,25 +1278,6 @@ type ContentfulNavbarSysContentTypeSys {
   linkType: String
   id: String
 }
-
-type ContentfulArticle implements ContentfulReference & ContentfulEntry & Node @dontInfer {
-  contentful_id: String!
-  node_locale: String!
-  title: String
-  slug: String
-  type: String
-  summary: String
-  tags: String
-  publishedDate: Date @dateformat
-  readingTime: String
-  author: String
-  secondaryHeader: ContentfulSecondaryHeader @link(by: "id", from: "secondaryHeader___NODE")
-  image: ContentfulAsset @link(by: "id", from: "image___NODE")
-  seo: ContentfulSeoComponent @link(by: "id", from: "seo___NODE")
-  bodyBlocks: [ContentfulArticleBodyBlocks] @link(by: "id", from: "bodyBlocks___NODE")
-}
-
-union ContentfulArticleBodyBlocks = ContentfulSecondaryHeader | ContentfulTitleAndText | ContentfulImageLeftWithText
 
 enum ImageFormat {
   NO_CHANGE
@@ -1568,3 +1592,5 @@ type ContentfulContentType implements Node @derivedTypes @dontInfer {
 type ContentfulContentTypeSys {
   type: String
 }
+
+union ContentfulImageLeftWithTextContentfulSecondaryHeaderContentfulTitleAndTextUnion = ContentfulImageLeftWithText | ContentfulSecondaryHeader | ContentfulTitleAndText
