@@ -38,7 +38,7 @@
     @apply mb-4 text-lg lg:text-xl;
   }
 
-  a {
+  .article-body-wrapper a {
     @apply text-secondary-color hover:underline focus:underline
   }
 
