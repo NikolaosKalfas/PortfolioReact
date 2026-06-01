@@ -96,9 +96,9 @@ export default ({ data }: any) => {
       <main id="main-content ">
         <SecondaryHeader data={hero}/>
         <section className="page-container">
-          <div className="flex flex-row gap-4 items-center">
+          <div className="flex flex-row gap-2 md:gap-4 items-center">
               {article?.tags && ( 
-                <span className={`uppercase text-xs lg:text-base block text-white rounded py-1 px-4`}
+                <span className={`uppercase text-xs md:text-base block text-white rounded py-1 px-2  md:px-4`}
                 style={{
                   backgroundColor: tagColor(article.tags).bg,
                 }}>
@@ -108,17 +108,17 @@ export default ({ data }: any) => {
               {article?.publishedDate && (
                 <>
                   <div className='h-1 w-1 rounded bg-primary-color opacity-90'></div>
-                  <span className="text-text-color-primary">{formatDate(article?.publishedDate)}</span>
+                  <span className="text-xs md:text-base text-text-color-primary">{formatDate(article?.publishedDate)}</span>
                 </>
               )}
               {article?.readingTime && (
                 <>
                   <div className='h-1 w-1 rounded bg-primary-color opacity-90'></div>
-                  <span className="text-text-color-primary">{article?.readingTime}</span>
+                  <span className="text-xs md:text-base text-text-color-primary">{article?.readingTime}</span>
                 </>
               )}
             </div>
-            <div className="border-b-2 h-1 w-full mt-6 lg:mt-8"></div>
+            <div className="border-b-2 h-1 w-full mt-3 md:mt-6 lg:mt-8"></div>
         </section>
         
         <section className="article-body-wrapper">
