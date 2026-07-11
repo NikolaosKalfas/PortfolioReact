@@ -1,4 +1,5 @@
 import React from "react";
+import { urlifyToKebabCase } from "../../helpers/tools";
 
 type SectionTitleDataType = {
   title: string;
@@ -10,7 +11,7 @@ const SectionTitle = ({ title, secondary }: SectionTitleDataType) => {
     <h2
       className={`md:text-center font-bold pb-10 ${
         secondary ? "text-text-color-secondary" : "text-text-color-primary"
-      }`}
+      }`} id={urlifyToKebabCase(title)}
     >
       {title}
     </h2>
