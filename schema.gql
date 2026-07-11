@@ -1,4 +1,4 @@
-### Type definitions saved at 2026-06-01T17:49:30.918Z ###
+### Type definitions saved at 2026-07-11T10:43:32.011Z ###
 
 enum RemoteFileFit {
   COVER
@@ -965,17 +965,33 @@ type ContentfulTitleAndText implements ContentfulReference & ContentfulEntry & N
   node_locale: String!
   title: String
   text: ContentfulTitleAndTextText
-  cardItems: [ContentfulCardItem] @link(by: "id", from: "cardItems___NODE")
+  article: [ContentfulArticle] @link(by: "id", from: "article___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulTitleAndTextSys
-  article: [ContentfulArticle] @link(by: "id", from: "article___NODE")
+  cardItems: [ContentfulCardItem] @link(by: "id", from: "cardItems___NODE")
   page: [ContentfulPage] @link(by: "id", from: "page___NODE")
 }
 
 type ContentfulTitleAndTextText {
   raw: String
+}
+
+type ContentfulTitleAndTextSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulTitleAndTextSysContentType
+}
+
+type ContentfulTitleAndTextSysContentType @derivedTypes {
+  sys: ContentfulTitleAndTextSysContentTypeSys
+}
+
+type ContentfulTitleAndTextSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
 }
 
 type ContentfulCardItem implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -1010,22 +1026,6 @@ type ContentfulCardItemSysContentType @derivedTypes {
 }
 
 type ContentfulCardItemSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type ContentfulTitleAndTextSys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulTitleAndTextSysContentType
-}
-
-type ContentfulTitleAndTextSysContentType @derivedTypes {
-  sys: ContentfulTitleAndTextSysContentTypeSys
-}
-
-type ContentfulTitleAndTextSysContentTypeSys {
   type: String
   linkType: String
   id: String

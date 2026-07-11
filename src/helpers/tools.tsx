@@ -130,3 +130,16 @@ const TAG_COLORS: Record<string, { bg: string; color: string }> = {
 export function tagColor(tag: string) {
   return TAG_COLORS[tag.toLowerCase()] ?? { bg: "#1b365d", color: "#fff" };
 }
+
+export const urlifyToKebabCase = (value: string) => {
+  const slug = value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/[\s_-]+/g, "-");
+
+  const normalizedSlug = slug.split("-").filter(Boolean).join("-");
+  return normalizedSlug || "section";
+};
