@@ -194,6 +194,10 @@ export const pageQuery = graphql`
         __typename
         id
         heading
+        image {
+          title
+          gatsbyImageData
+        }
       }
       titleAndText {
         __typename
