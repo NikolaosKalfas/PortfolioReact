@@ -28,7 +28,7 @@ const ArticleCard = ({data}: ArticleCardDataType) => {
             hover:shadow-[0_12px_40px_rgba(26,50,82,0.13)]
             transition-shadow duration-200'
         >
-            <div className='h-48'>
+            <div className='h-48 w-full'>
                 <CardImageSection data={data?.image} heroArticle={false}/>
             </div>
             <div className='content-item__content-container p-6 w-full'>
