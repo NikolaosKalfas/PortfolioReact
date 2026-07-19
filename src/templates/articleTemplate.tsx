@@ -196,7 +196,7 @@ export const articleQuery = graphql`
           heading
           image {
             title
-            gatsbyImageData
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         ... on ContentfulTitleAndText {
