@@ -57,6 +57,7 @@ const ProductCard = (data: ProductCardDataType) => {
               label={card.mainButton.buttonLabel}
               url={card.mainButton.buttonLink}
               secondary={card.mainButton.secondary}
+              ariaLabel={`${card.mainButton.buttonLabel} ${card.title}`}
             />
           </div>
         )}
@@ -66,6 +67,7 @@ const ProductCard = (data: ProductCardDataType) => {
               label={card.secondaryButton.buttonLabel}
               url={card.secondaryButton.buttonLink}
               secondary={card.secondaryButton.secondary}
+              ariaLabel={`${card.secondaryButton.buttonLabel} ${card.title}`}
             />
           </div>
         )}

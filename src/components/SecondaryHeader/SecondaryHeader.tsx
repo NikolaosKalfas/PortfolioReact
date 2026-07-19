@@ -69,7 +69,8 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
                 alt={data.image!.title}
                 className="absolute inset-0 h-full w-full"
                 style={{ position: "absolute" }}
-                objectFit="contain"
+                objectFit="cover"
+                objectPosition="center top"
                 backgroundColor="#1b365d"
               />
               <div className="absolute inset-0 bg-[rgba(0,0,0,0.75)] md:bg-[rgba(0,0,0,0.55)]" />
