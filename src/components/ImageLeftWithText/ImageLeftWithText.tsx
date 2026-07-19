@@ -21,11 +21,12 @@ const ImageLeftWithText = ({ data }: ImageLeftWithTextDataType) => {
   return (
       <section className="page-container bg-tertiary-color">
         {data.title && <SectionTitle title={data.title} />}
-        <div className={`md:flex md:gap-5 ${imageToTheRight ? 'flex-row-reverse' : ''}`}>
+        <div className={`md:flex md:gap-10 ${imageToTheRight ? 'flex-row-reverse' : ''}`}>
           <div className="md:w-1/2">
             <GatsbyImage
               image={data.image.gatsbyImageData}
               alt={data.image.title}
+              className="rounded-lg overflow-hidden"
             />
           </div>
           <div className="md:w-1/2 lg:1/3">
