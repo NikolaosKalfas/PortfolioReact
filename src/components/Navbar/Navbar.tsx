@@ -42,7 +42,7 @@ const Navbar = () => {
               </div>
               {dropdownOpen ? (
                 <div
-                  className="absolute flex flex-col bg-off-white top-10 p-4"
+                  className="absolute flex flex-col bg-off-white top-10 p-4 w-max"
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
                   {navbarData.products.map((product: NavigationLinkType) => (
