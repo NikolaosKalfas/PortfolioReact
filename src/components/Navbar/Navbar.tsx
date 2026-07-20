@@ -42,14 +42,14 @@ const Navbar = () => {
               </div>
               {dropdownOpen ? (
                 <div
-                  className="absolute flex flex-col bg-off-white top-10 p-4 w-max"
+                  className="absolute flex flex-col bg-off-white top-10 p-4 w-max shadow-[0_2px_14px_rgba(0,0,0,0.12)]"
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
                   {navbarData.products.map((product: NavigationLinkType) => (
                     <Link
                       to={product.link}
                       key={product.label}
-                      className="text-primary-color navbar-link underline-offset-2 hover:underline hover:duration-300 pb-2 "
+                      className="text-primary-color underline-offset-2 hover:underline hover:duration-300 pb-2"
                     >
                       {product.label}
                     </Link>

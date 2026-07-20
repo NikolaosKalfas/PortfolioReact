@@ -49,7 +49,7 @@ const NavbarMobile = () => {
             <Link
               to={product.link}
               key={product.label}
-              className="text-primary-color underline-offset-2 hover:underline hover:duration-300 text-4xl mt-5"
+              className="text-primary-color underline-offset-2 hover:underline hover:duration-300 text-3xl mt-5 text-center"
               onClick={closeNav}
             >
               {product.label}
@@ -60,7 +60,7 @@ const NavbarMobile = () => {
               <Link
                 to={link.link}
                 key={link.label}
-                className="text-primary-color underline-offset-2 hover:underline hover:duration-300 text-4xl mt-5"
+                className="text-primary-color underline-offset-2 hover:underline hover:duration-300 text-3xl mt-5 text-center"
                 onClick={closeNav}
               >
                 {link.label}
