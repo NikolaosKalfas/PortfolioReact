@@ -7,7 +7,7 @@ import Footer from "../components/Footer/Footer";
 import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 import { injectSpeedInsights } from '@vercel/speed-insights'
 import { inject } from '@vercel/analytics';
-import { generatePageSchemas } from "../helpers/tools";
+import { buildCanonicalUrl, generatePageSchemas } from "../helpers/tools";
 import HeroArticle from "../components/ContentListing/HeroArticle";
 import ArticleCard from "../components/ContentListing/ArticleCard";
 
@@ -33,13 +33,12 @@ export default ({ data, pageContext }: any) => {
   const title = type === "blogs" ? "Blog" : "Case Studies";
   const heroArticle = data?.heroArticle
 
-const [url, setUrl] = useState("");
+  // Paginated pages self-canonicalise (/blogs/2), they do not point back at /blogs.
+  const url = buildCanonicalUrl(
+    currentPage === 1 ? basePath : `${basePath}/${currentPage}`
+  );
 
   useEffect(() => {
-    if (globalThis.location !== undefined) {
-      setUrl(globalThis.location.href);
-    }
-
     // Vercel Tracking
     injectSpeedInsights();
     inject()
@@ -166,10 +165,12 @@ const [url, setUrl] = useState("");
 
 export const Head = ({ data, pageContext }: any) => {
   const articles = data?.allContentfulArticle.nodes;
-  const { type } = pageContext;
+  const { type, currentPage } = pageContext;
   const title = type === "blogs" ? "Blogs" : "Case Studies";
   const basePath = type === "blogs" ? "/blogs" : "/case-studies";
-  const url = `https://nikoswebvision.com${basePath}`;
+  const url = buildCanonicalUrl(
+    currentPage === 1 ? basePath : `${basePath}/${currentPage}`
+  );
 
   const schemaData = {
     title: title,

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import { graphql } from "gatsby";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import NavbarContainer from "../components/Navbar/NavbarContainer";
@@ -7,7 +7,7 @@ import ImageLeftWithText from "../components/ImageLeftWithText/ImageLeftWithText
 import { Helmet } from "react-helmet";
 import { injectSpeedInsights } from '@vercel/speed-insights'
 import { inject } from '@vercel/analytics';
-import { generatePageSchemas, formatDate, tagColor } from "../helpers/tools";
+import { buildCanonicalUrl, generatePageSchemas, formatDate, tagColor } from "../helpers/tools";
 import TextWithIcons from "../components/TextWithIcons/TextWithIcons";
 import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
 
@@ -31,19 +31,13 @@ export default ({ data }: any) => {
   const article = data.article;
   const hero = article.bodyBlocks.find((block: any) => block.__typename === "ContentfulSecondaryHeader")
 
-  const [url, setUrl] = useState("");
+  const url = buildCanonicalUrl(`${article.type}/${article.slug}`);
 
   useEffect(() => {
-    if (window.location !== undefined) {
-      setUrl(window.location.href);
-    }
-
     // Vercel Tracking
     injectSpeedInsights();
     inject()
   }, []);
-
-  console.log(article)
 
   return (
     <div>
@@ -145,7 +139,7 @@ export default ({ data }: any) => {
 
 export const Head = ({ data }: any) => {
   const article = data.article;
-  const url = `https://nikoswebvision.com/${article.type}/${article.slug}`;
+  const url = buildCanonicalUrl(`${article.type}/${article.slug}`);
   
   const pageSchemas = generatePageSchemas(article, url);
 
