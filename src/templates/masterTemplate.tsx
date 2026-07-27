@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { graphql, Link } from "gatsby";
 import { componentBuilder } from "../helpers/componentsHelper";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
@@ -8,7 +8,7 @@ import CookieConsent from "react-cookie-consent";
 import { Helmet } from "react-helmet";
 import { injectSpeedInsights } from '@vercel/speed-insights'
 import { inject } from '@vercel/analytics';
-import { generatePageSchemas } from "../helpers/tools";
+import { buildCanonicalUrl, generatePageSchemas } from "../helpers/tools";
 // @ts-ignore
 import favicon from '/src/images/favicon.ico'
 // @ts-ignore
@@ -23,15 +23,11 @@ import favicon16 from '/src/images/favicon-16x16.png'
 import appleTouch from '/src/images/apple-touch-icon.png'
 
 export default (data: any) => {
-  const [url, setUrl] = useState("");
   const pageData = data.data.page;
+  const url = buildCanonicalUrl(pageData.slug);
   const componentsArr: any = [];
 
   useEffect(() => {
-    if (window.location !== undefined) {
-      setUrl(window.location.href);
-    }
-
     // Vercel Tracking
     injectSpeedInsights();
     inject()
@@ -138,8 +134,8 @@ export default (data: any) => {
 
 export const Head = ({ data }: any) => {
   const pageData = data.page;
-  const url = `https://nikoswebvision.com/${pageData.slug === 'home' ? '' : pageData.slug}`;
-  
+  const url = buildCanonicalUrl(pageData.slug);
+
   const pageSchemas = generatePageSchemas(pageData, url);
 
   return (

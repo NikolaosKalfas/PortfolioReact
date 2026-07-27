@@ -48,8 +48,11 @@ const config: GatsbyConfig = {
         },
         serialize: ({ path }: any) => {
           // each page is serialized, formatted from the resolvePages function
+          // trailing slashes are stripped to match the canonical (no trailing
+          // slash) form enforced at the edge by vercel.json, so the sitemap
+          // never lists a URL that redirects
           return {
-            url: path,
+            url: path === "/" ? path : path.replace(/\/$/, ""),
           };
         },
       },
