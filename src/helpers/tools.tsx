@@ -1,3 +1,16 @@
+export const SITE_URL = "https://nikoswebvision.com";
+
+/**
+ * Builds an absolute, canonical URL from a page path or Contentful slug.
+ * Handles both slug shapes used in this CMS: the homepage is stored as "/",
+ * every other page as a bare path without a leading slash (e.g. "services/about").
+ * Trailing slashes are stripped to match the site's canonical (no trailing slash) form.
+ */
+export const buildCanonicalUrl = (path?: string) => {
+  const trimmed = (path ?? "").split("/").filter(Boolean).join("/");
+  return trimmed ? `${SITE_URL}/${trimmed}` : `${SITE_URL}/`;
+};
+
 type handleInputChangeType = (
   e: any,
   setValue: (arg: string) => void,
@@ -61,7 +74,7 @@ export const generatePageSchemas = (pageData: any, url: string) => {
         "itemListElement": pageData.articles?.map((art: any, index: number) => ({
           "@type": "ListItem",
           "position": index + 1,
-          "url": `https://nikoswebvision.com/${art.type}/${art.slug}`
+          "url": buildCanonicalUrl(`${art.type}/${art.slug}`)
         }))
       }
     });

@@ -26,7 +26,9 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
     const newBreadCrumbs: Array<BreadcrumbType> = [{ name: "Home", link: "/" }];
 
     const parts = url.split("/");
-    let cumulativeLink = "/";
+    // built without a trailing slash to match the canonical form enforced at
+    // the edge by vercel.json, so breadcrumbs never link through a redirect
+    let cumulativeLink = "";
     for (let i = 0; i < parts.length; i++) {
       let element = parts[i];
       if (element === "") {
@@ -39,7 +41,7 @@ const SecondaryHeader = ({ data }: SecondaryHeaderDataType) => {
           label = "Case studies";
           element = "case-studies";
         }
-        cumulativeLink = cumulativeLink + element + "/";
+        cumulativeLink = cumulativeLink + "/" + element;
         newBreadCrumbs.push({
           name: label,
           link: cumulativeLink,

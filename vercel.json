@@ -1,0 +1,21 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/services/standard-package",
+      "destination": "/services/starter-website-package",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/advanced-package",
+      "destination": "/services/business-growth-package",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/premium-package",
+      "destination": "/services/enterprise-marketing-package",
+      "statusCode": 301
+    }
+  ]
+}
