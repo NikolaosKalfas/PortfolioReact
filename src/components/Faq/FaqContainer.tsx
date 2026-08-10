@@ -7,17 +7,18 @@ import { FaqItemDataType } from './FaqItem';
 type FaqContainerDataType = {
     data: {
         title: string;
-        faqSingleItem: FaqContainerDataType[];
+        faqSingleItem: FaqItemDataType[];
     };
 };
 
 const FaqContainer = ({data}: FaqContainerDataType) => {
+
     return (
         <section className="page-container bg-tertiary-color">
             {data.title && <SectionTitle title={data.title} />}
             <div>
-                {data.faqSingleItem.map((item: any) => (
-                    <FaqItem data={item} key={item.question}/>
+                {data.faqSingleItem.map((item: any, index: number) => (
+                    <FaqItem data={item} index={index} key={item.question}/>
                 ))}
             </div>
         </section>
