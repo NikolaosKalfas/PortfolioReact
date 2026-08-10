@@ -5,6 +5,21 @@ require("dotenv").config({
 
 const SITE_URL = "https://nikoswebvision.com";
 
+// Vercel sets VERCEL_ENV to "production" | "preview" | "development" on every build.
+// Preview/UAT deploys and local builds must not report analytics or be crawlable.
+const IS_PRODUCTION_DEPLOY = process.env.VERCEL_ENV === "production";
+
+// Gatsby's DefinePlugin only inlines GATSBY_*-prefixed vars into the browser and SSR
+// bundles, so re-export the flag under a prefixed name for gatsby-ssr / gatsby-browser.
+process.env.GATSBY_ANALYTICS_ENABLED = String(IS_PRODUCTION_DEPLOY);
+
+// Fail loudly rather than silently shipping production without analytics.
+if (IS_PRODUCTION_DEPLOY && !process.env.GATSBY_GA_ID) {
+  console.warn(
+    "[analytics] Production deploy but GATSBY_GA_ID is not set — GA4 will NOT be injected."
+  );
+}
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Portfolio React`,
@@ -75,7 +90,11 @@ const config: GatsbyConfig = {
       options: {
         host: SITE_URL,
         sitemap: `${SITE_URL}/sitemap-index.xml`,
-        policy: [{ userAgent: '*', allow: '/' }]
+        // NB: the plugin's own `env` option keys off NODE_ENV, which is "production" on
+        // preview deploys too — so the branch has to be on VERCEL_ENV instead.
+        policy: IS_PRODUCTION_DEPLOY
+          ? [{ userAgent: '*', allow: '/' }]
+          : [{ userAgent: '*', disallow: '/' }]
       }
     },
     "gatsby-plugin-image",

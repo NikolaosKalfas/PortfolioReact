@@ -23,6 +23,7 @@ const FaqItem = ({data, index}: FaqItemDataType & {index: number }) => {
                 aria-expanded={faqHidden} 
                 aria-controls={contentId}
                 onClick={() => setFaqHidden(!faqHidden)}
+                type="button"
             >
                 {data.question}
                 <StaticImage

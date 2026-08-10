@@ -1,12 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import NavbarContainer from "../components/Navbar/NavbarContainer";
 import Footer from "../components/Footer/Footer";
 import ImageLeftWithText from "../components/ImageLeftWithText/ImageLeftWithText";
 import { Helmet } from "react-helmet";
-import { injectSpeedInsights } from '@vercel/speed-insights'
-import { inject } from '@vercel/analytics';
 import { buildCanonicalUrl, generatePageSchemas, formatDate, tagColor } from "../helpers/tools";
 import TextWithIcons from "../components/TextWithIcons/TextWithIcons";
 import SecondaryHeader from "../components/SecondaryHeader/SecondaryHeader";
@@ -33,12 +31,6 @@ export default ({ data }: any) => {
 
   const url = buildCanonicalUrl(`${article.type}/${article.slug}`);
 
-  useEffect(() => {
-    // Vercel Tracking
-    injectSpeedInsights();
-    inject()
-  }, []);
-
   return (
     <div>
     <Helmet>
@@ -48,17 +40,6 @@ export default ({ data }: any) => {
         <link rel="icon" type="image/png" sizes={'32'} href={favicon32} />
         <link rel="icon" type="image/png" sizes={'16'} href={favicon16} />
         <link rel="icon" type="image/png" href={appleTouch} />
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6Y4EMVPRH"></script>
-        <script>
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments)}
-              gtag('js', new Date());
-
-              gtag('config', 'G-E6Y4EMVPRH');
-            `}
-        </script>
     </Helmet>
     <GatsbySeo
         title={article.seo?.title + " - Nikolaos Kalfas"}

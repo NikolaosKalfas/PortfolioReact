@@ -11,7 +11,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run clean` — clear Gatsby cache (`.cache`, `public`)
 - `npm run cleanstart` — clean + develop, useful when Contentful schema/content types change and Gatsby's GraphQL schema needs to be rebuilt
 - No test suite or lint script is configured.
-- Requires a `.env` file with `CONTENTFUL_ACCESSTOKEN`, `CONTENTFUL_SPACEID`, `CONTENTFUL_HOST`.
+- Requires a `.env` file with `CONTENTFUL_ACCESSTOKEN`, `CONTENTFUL_SPACEID`, `CONTENTFUL_HOST`, `GATSBY_GA_ID`, `GATSBY_RECAPTCHA_KEY`.
+- Analytics are off in local builds by design (see below). To exercise them locally, build with `VERCEL_ENV=production npm run build && npm run serve`.
 
 ## Architecture
 
@@ -36,7 +37,18 @@ This is a Gatsby site where nearly all page content comes from Contentful, not f
 
 - `src/helpers/tools.tsx` → `generatePageSchemas(pageData, url)` builds JSON-LD schema.org objects (Article, CollectionPage, ProfessionalService/Service, FAQPage) based on heuristics over the page data shape (`publishedDate` present → article, `isListingPage` flag → collection, slug `home` → professional service, otherwise generic service). This is called from each template's exported `Head` component.
 - Per-page SEO (title/description/OG/Twitter/noindex/nofollow) comes from the `seo` Contentful field and is rendered via `gatsby-plugin-next-seo`'s `GatsbySeo` in the default export of each template (not in `Head`).
-- Favicons and Google Analytics tag are duplicated inline in each template's `<Helmet>` block (masterTemplate, articleTemplate) rather than shared — if editing one, check whether the other needs the same change.
+- Favicons are duplicated inline in the `<Helmet>` block of all five page-rendering files (masterTemplate, articleTemplate, blogsListingTemplate, `src/pages/404.tsx`, `src/pages/sitemap.tsx`) rather than shared — if editing one, check whether the others need the same change.
+
+### Analytics & environment gating
+
+All analytics are gated on being a **production Vercel deploy**, so preview/UAT deploys and local builds never report:
+
+- `gatsby-config.ts` derives `IS_PRODUCTION_DEPLOY` from Vercel's `VERCEL_ENV` (`production` | `preview` | `development`) and re-exports it as `process.env.GATSBY_ANALYTICS_ENABLED`. The `GATSBY_` prefix is required — Gatsby's webpack `DefinePlugin` only inlines prefixed vars into the browser and SSR bundles, so a bare `process.env.VERCEL_ENV` read from `gatsby-ssr.js` / `gatsby-browser.js` will not work.
+- `gatsby-ssr.js` → `onRenderBody` is the single injection point for the GA4 `gtag.js` snippet (ID from `GATSBY_GA_ID`). Non-production builds emit no analytics markup at all. Do not re-add the snippet to templates.
+- `gatsby-browser.js` → `onClientEntry` injects Vercel Analytics and Speed Insights once per session, behind the same flag.
+- `gatsby-plugin-robots-txt` serves `Disallow: /` on non-production deploys so previews are not crawled and indexed. Note its built-in `env` option keys off `NODE_ENV`, which is `production` on previews too — that is why the branch is on `VERCEL_ENV`.
+- `ContactForm.tsx` fires a custom `manual_event_SUBMIT_LEAD_FORM` event, guarded by `typeof window.gtag !== 'undefined'`, so it no-ops cleanly wherever GA is absent.
+- This relies on Vercel's *Automatically expose System Environment Variables* project setting being enabled.
 
 ### Components
 
