@@ -23,9 +23,6 @@ type HeroArticleDataType = {
 const HeroArticle = ({data}: HeroArticleDataType) => {
     const url = `/${data?.type}/${data?.slug}`
 
-
-    console.log(data)
-
   return (
     <section className='content-item page-container w-full '>
         <a href={url} className='content-item__container flex flex-col md:flex-row rounded-2xl overflow-hidden
